@@ -1,0 +1,285 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		64D379351526FD3500DA794B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D379341526FD3500DA794B /* UIKit.framework */; };
+		64D379371526FD3500DA794B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D379361526FD3500DA794B /* Foundation.framework */; };
+		64D379391526FD3500DA794B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D379381526FD3500DA794B /* CoreGraphics.framework */; };
+		64D3793F1526FD3500DA794B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64D3793D1526FD3500DA794B /* InfoPlist.strings */; };
+		64D379411526FD3500DA794B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D379401526FD3500DA794B /* main.m */; };
+		64D379451526FD3500DA794B /* Pot_CalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D379441526FD3500DA794B /* Pot_CalculatorAppDelegate.m */; };
+		64D379481526FD3500DA794B /* Pot_CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D379471526FD3500DA794B /* Pot_CalculatorViewController.m */; };
+		64D3794B1526FD3500DA794B /* Pot_CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64D379491526FD3500DA794B /* Pot_CalculatorViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		64D379301526FD3500DA794B /* Calculateur-de-Pot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calculateur-de-Pot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64D379341526FD3500DA794B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		64D379361526FD3500DA794B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		64D379381526FD3500DA794B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		64D3793C1526FD3500DA794B /* Calculateur-de-Pot-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Calculateur-de-Pot-Info.plist"; sourceTree = "<group>"; };
+		64D3793E1526FD3500DA794B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		64D379401526FD3500DA794B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		64D379421526FD3500DA794B /* Calculateur-de-Pot-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Calculateur-de-Pot-Prefix.pch"; sourceTree = "<group>"; };
+		64D379431526FD3500DA794B /* Pot_CalculatorAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pot_CalculatorAppDelegate.h; sourceTree = "<group>"; };
+		64D379441526FD3500DA794B /* Pot_CalculatorAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pot_CalculatorAppDelegate.m; sourceTree = "<group>"; };
+		64D379461526FD3500DA794B /* Pot_CalculatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pot_CalculatorViewController.h; sourceTree = "<group>"; };
+		64D379471526FD3500DA794B /* Pot_CalculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pot_CalculatorViewController.m; sourceTree = "<group>"; };
+		64D3794A1526FD3500DA794B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Pot_CalculatorViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		64D3792D1526FD3500DA794B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64D379351526FD3500DA794B /* UIKit.framework in Frameworks */,
+				64D379371526FD3500DA794B /* Foundation.framework in Frameworks */,
+				64D379391526FD3500DA794B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		64D379251526FD3500DA794B = {
+			isa = PBXGroup;
+			children = (
+				64D3793A1526FD3500DA794B /* Calculateur-de-Pot */,
+				64D379331526FD3500DA794B /* Frameworks */,
+				64D379311526FD3500DA794B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		64D379311526FD3500DA794B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				64D379301526FD3500DA794B /* Calculateur-de-Pot.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		64D379331526FD3500DA794B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64D379341526FD3500DA794B /* UIKit.framework */,
+				64D379361526FD3500DA794B /* Foundation.framework */,
+				64D379381526FD3500DA794B /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		64D3793A1526FD3500DA794B /* Calculateur-de-Pot */ = {
+			isa = PBXGroup;
+			children = (
+				64D379431526FD3500DA794B /* Pot_CalculatorAppDelegate.h */,
+				64D379441526FD3500DA794B /* Pot_CalculatorAppDelegate.m */,
+				64D379461526FD3500DA794B /* Pot_CalculatorViewController.h */,
+				64D379471526FD3500DA794B /* Pot_CalculatorViewController.m */,
+				64D379491526FD3500DA794B /* Pot_CalculatorViewController.xib */,
+				64D3793B1526FD3500DA794B /* Supporting Files */,
+			);
+			path = "Calculateur-de-Pot";
+			sourceTree = "<group>";
+		};
+		64D3793B1526FD3500DA794B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				64D3793C1526FD3500DA794B /* Calculateur-de-Pot-Info.plist */,
+				64D3793D1526FD3500DA794B /* InfoPlist.strings */,
+				64D379401526FD3500DA794B /* main.m */,
+				64D379421526FD3500DA794B /* Calculateur-de-Pot-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		64D3792F1526FD3500DA794B /* Calculateur-de-Pot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64D3794E1526FD3500DA794B /* Build configuration list for PBXNativeTarget "Calculateur-de-Pot" */;
+			buildPhases = (
+				64D3792C1526FD3500DA794B /* Sources */,
+				64D3792D1526FD3500DA794B /* Frameworks */,
+				64D3792E1526FD3500DA794B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Calculateur-de-Pot";
+			productName = "Calculateur-de-Pot";
+			productReference = 64D379301526FD3500DA794B /* Calculateur-de-Pot.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		64D379271526FD3500DA794B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = "Pot-Calculator";
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = UNSA;
+			};
+			buildConfigurationList = 64D3792A1526FD3500DA794B /* Build configuration list for PBXProject "Calculateur-de-Pot" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 64D379251526FD3500DA794B;
+			productRefGroup = 64D379311526FD3500DA794B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				64D3792F1526FD3500DA794B /* Calculateur-de-Pot */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		64D3792E1526FD3500DA794B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64D3793F1526FD3500DA794B /* InfoPlist.strings in Resources */,
+				64D3794B1526FD3500DA794B /* Pot_CalculatorViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		64D3792C1526FD3500DA794B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64D379411526FD3500DA794B /* main.m in Sources */,
+				64D379451526FD3500DA794B /* Pot_CalculatorAppDelegate.m in Sources */,
+				64D379481526FD3500DA794B /* Pot_CalculatorViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		64D3793D1526FD3500DA794B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				64D3793E1526FD3500DA794B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		64D379491526FD3500DA794B /* Pot_CalculatorViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				64D3794A1526FD3500DA794B /* en */,
+			);
+			name = Pot_CalculatorViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		64D3794C1526FD3500DA794B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Paraita Wohler (Q4NWB5QCKP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PROVISIONING_PROFILE = "A7E0A592-20FA-4A03-8015-9E921B2FD90F";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		64D3794D1526FD3500DA794B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Paraita Wohler (Q4NWB5QCKP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "A7E0A592-20FA-4A03-8015-9E921B2FD90F";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		64D3794F1526FD3500DA794B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Calculateur-de-Pot/Calculateur-de-Pot-Prefix.pch";
+				INFOPLIST_FILE = "Calculateur-de-Pot/Calculateur-de-Pot-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		64D379501526FD3500DA794B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Calculateur-de-Pot/Calculateur-de-Pot-Prefix.pch";
+				INFOPLIST_FILE = "Calculateur-de-Pot/Calculateur-de-Pot-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		64D3792A1526FD3500DA794B /* Build configuration list for PBXProject "Calculateur-de-Pot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64D3794C1526FD3500DA794B /* Debug */,
+				64D3794D1526FD3500DA794B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64D3794E1526FD3500DA794B /* Build configuration list for PBXNativeTarget "Calculateur-de-Pot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64D3794F1526FD3500DA794B /* Debug */,
+				64D379501526FD3500DA794B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 64D379271526FD3500DA794B /* Project object */;
+}
