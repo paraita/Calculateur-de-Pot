@@ -18,6 +18,7 @@
 @implementation Pot_CalculatorViewController
 @synthesize brain;
 @synthesize lblCote;
+@synthesize maCarteUn, maCarteDeux, adversaireCarteUn, adversaireCarteDeux, flopUn, flopDeux, flopTrois, turn, river;
 
 - (id)initWithBrain:(Pot_Calculator_Brain *)aBrain
 {
@@ -46,6 +47,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     //self.view.layer.cornerRadius = 10.0f;
     //self.view.layer.masksToBounds = YES;
+
 }
 
 - (void)viewDidUnload
@@ -53,7 +55,14 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
-
+- (IBAction)changeBackgrundcard:(id)sender{
+    //Changer le backGround des cartes
+    UIImage *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backgroundcartes.jpg"]];
+    NSLog(@"Chargment du Background");
+    [self.maCarteUn setImage:background forState:UIControlStateNormal];
+    NSLog(@"setting du Background");
+    [background release];
+}
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
