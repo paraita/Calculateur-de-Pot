@@ -31,7 +31,7 @@
 		64346DAE152B52C700E54225 /* Pot_CalculatorSecondPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pot_CalculatorSecondPageViewController.h; sourceTree = "<group>"; };
 		64346DAF152B52C700E54225 /* Pot_CalculatorSecondPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pot_CalculatorSecondPageViewController.m; sourceTree = "<group>"; };
 		64346DB0152B52C700E54225 /* Pot_CalculatorSecondPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Pot_CalculatorSecondPageViewController.xib; sourceTree = "<group>"; };
-		64346DB8152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Pot_CalculatorThirdPageViewController.h; sourceTree = "<group>"; };
+		64346DB8152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pot_CalculatorThirdPageViewController.h; sourceTree = "<group>"; };
 		64346DB9152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pot_CalculatorThirdPageViewController.m; sourceTree = "<group>"; };
 		64346DBA152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Pot_CalculatorThirdPageViewController.xib; sourceTree = "<group>"; };
 		64D379301526FD3500DA794B /* Calculateur-de-Pot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calculateur-de-Pot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,7 +250,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PROVISIONING_PROFILE = "A7E0A592-20FA-4A03-8015-9E921B2FD90F";
 				SDKROOT = iphoneos;
 			};
@@ -269,7 +269,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "A7E0A592-20FA-4A03-8015-9E921B2FD90F";
 				SDKROOT = iphoneos;
@@ -283,6 +283,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Calculateur-de-Pot/Calculateur-de-Pot-Prefix.pch";
 				INFOPLIST_FILE = "Calculateur-de-Pot/Calculateur-de-Pot-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -294,6 +295,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Calculateur-de-Pot/Calculateur-de-Pot-Prefix.pch";
 				INFOPLIST_FILE = "Calculateur-de-Pot/Calculateur-de-Pot-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
