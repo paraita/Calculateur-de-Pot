@@ -7,13 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "Pot_CalculatorAppDelegate.h"
+#define MARCHE
 
 int main(int argc, char *argv[])
 {
+ 
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
+    int retVal = UIApplicationMain(argc, argv, nil, NSStringFromClass([Pot_CalculatorAppDelegate class]));
     [pool release];
     return retVal;
+    
+     /*
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([Pot_CalculatorAppDelegate class]));
+    }
+     */
+    
 }

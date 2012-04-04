@@ -14,9 +14,9 @@
 
 @interface Pot_CalculatorAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (nonatomic, retain) UIWindow *window;
+@property (retain, nonatomic) UIWindow *window;
 
-@property (nonatomic, retain) Pot_CalculatorViewController *vue1;
-@property (nonatomic, retain) Pot_CalculatorSecondPageViewController *vue2;
-@property (nonatomic, retain) Pot_CalculatorThirdPageViewController *vue3;
+@property (retain, nonatomic) Pot_CalculatorViewController *vue1;
+@property (retain, nonatomic) Pot_CalculatorSecondPageViewController *vue2;
+@property (retain, nonatomic) Pot_CalculatorThirdPageViewController *vue3;
 @end

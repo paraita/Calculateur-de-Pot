@@ -17,17 +17,23 @@
 @implementation Pot_CalculatorAppDelegate
 
 @synthesize window = _window;
-@synthesize vue1 = _vue1;
-@synthesize vue2 = _vue2;
-@synthesize vue3 = _vue3;
+@synthesize vue1;
+@synthesize vue2;
+@synthesize vue3;
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        self.vue1 = [[Pot_CalculatorViewController alloc] init];
-        self.vue2 = [[Pot_CalculatorSecondPageViewController alloc] init];
-        self.vue3 = [[Pot_CalculatorThirdPageViewController alloc] init];
+        if (!self.vue1) {
+            vue1 = [[Pot_CalculatorViewController alloc] init];
+        }
+        if (!self.vue2) {
+            vue2 = [[Pot_CalculatorSecondPageViewController alloc] init];
+        }
+        if (!self.vue3) {
+            vue3 = [[Pot_CalculatorThirdPageViewController alloc] init];
+        }
     }
     return self;
 }
@@ -48,13 +54,15 @@
     
     //self.viewController = [[[Pot_CalculatorViewController alloc] initWithNibName:@"Pot_CalculatorViewController" bundle:nil] autorelease];
     
-    IIViewDeckController *dc = [[IIViewDeckController alloc] initWithCenterViewController:self.vue1];
+    IIViewDeckController *dc = [[[IIViewDeckController alloc] initWithCenterViewController:self.vue1] autorelease];
     
     dc.leftController = self.vue2;
     dc.rightController = self.vue3;
     
     self.window.rootViewController = dc;
     [self.window makeKeyAndVisible];
+    
+    NSLog(@"fini de charger");
     return YES;
 }
 

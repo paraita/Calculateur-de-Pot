@@ -1197,7 +1197,7 @@ __typeof__(h) __h = (h);                                    \
     }
 }
 
-- (void)applySideController:(__strong UIViewController **)controllerStore to:(UIViewController *)newController otherSideController:(UIViewController *)otherController clearOtherController:(void(^)())clearOtherController {
+- (void)applySideController:(UIViewController **)controllerStore to:(UIViewController *)newController otherSideController:(UIViewController *)otherController clearOtherController:(void(^)())clearOtherController {
     void(^beforeBlock)(UIViewController* controller) = ^(UIViewController* controller){};
     void(^afterBlock)(UIViewController* controller) = ^(UIViewController* controller){};
     
@@ -1250,7 +1250,7 @@ __typeof__(h) __h = (h);                                    \
     }
 }
 
-- (void)reapplySideController:(__strong UIViewController **)controllerStore {
+- (void)reapplySideController:(UIViewController **)controllerStore {
     [self applySideController:controllerStore to:*controllerStore otherSideController:nil clearOtherController:nil];
 }
 
