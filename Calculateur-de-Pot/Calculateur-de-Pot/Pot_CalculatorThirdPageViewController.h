@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Pot_Calculator_Brain.h"
 
-@interface Pot_CalculatorThirdPageViewController : UIViewController
+@interface Pot_CalculatorThirdPageViewController : UIViewController <UITextFieldDelegate>
 
+
+@property (nonatomic, assign) IBOutlet UITextField *champTaillePot;
+@property (nonatomic, assign) IBOutlet UITextField *champMise;
 @property (nonatomic, assign) Pot_Calculator_Brain *brain;
 
 - (id)initWithBrain:(Pot_Calculator_Brain *)aBrain;
-
+- (IBAction)calculerCote:(id)sender;
 @end

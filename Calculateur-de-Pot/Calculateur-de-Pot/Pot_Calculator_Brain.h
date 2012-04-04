@@ -10,4 +10,10 @@
 
 @interface Pot_Calculator_Brain : NSObject
 
+@property (nonatomic, assign) float taillePot;
+@property (nonatomic, assign) float mise;
+@property (nonatomic, assign) float cote;
+
+- (void)calculerCote:(float)laTailleDuPot mise:(float)laMise;
+
 @end

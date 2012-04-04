@@ -14,6 +14,8 @@
 
 @implementation Pot_CalculatorThirdPageViewController
 @synthesize brain;
+@synthesize champMise;
+@synthesize champTaillePot;
 
 - (id)initWithBrain:(Pot_Calculator_Brain *)aBrain
 {
@@ -37,6 +39,22 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // pour pouvoir scroller verticalement
+    UIScrollView *v = (id)self.view;
+    v.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
+    v.contentInset = UIEdgeInsetsMake(1, 0, 1, 0);
+    
+    // je suis délégué de mes zones de texte, pour pouvoir fermer
+    // le clavier en temps voulu
+    [champMise setDelegate:self];
+    [champTaillePot setDelegate:self];
+    
+    // on set le keyboard numerique
+    self.champMise.keyboardType = UIKeyboardTypeDecimalPad;
+    self.champTaillePot.keyboardType = UIKeyboardTypeDecimalPad;
+    self.champMise.returnKeyType = UIReturnKeyDone;
+    self.champTaillePot.returnKeyType = UIReturnKeyDone;
 }
 
 - (void)viewDidUnload
@@ -49,6 +67,34 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+
+- (IBAction)calculerCote:(id)sender
+{
+    // au cas ou on a pas fermé le clavier
+    [self.champMise resignFirstResponder];
+    [self.champTaillePot resignFirstResponder];
+    
+    // on vérifie les valeurs
+    float taillePot = 0;
+    float mise = 1;
+    
+    if ([[self.champTaillePot text] length] > 0) {
+        taillePot = [[self.champTaillePot text] doubleValue];
+    }
+    
+    if ([[self.champTaillePot text] length] > 0) {
+        mise = [[self.champMise text] doubleValue];
+    }
+    
+    [brain calculerCote:taillePot mise:mise];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

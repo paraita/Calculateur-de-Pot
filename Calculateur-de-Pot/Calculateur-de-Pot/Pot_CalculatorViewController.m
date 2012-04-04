@@ -7,6 +7,9 @@
 //
 
 #import "Pot_CalculatorViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import "IIViewDeckController.h"
+#import "Pot_Calculator_Brain.h"
 
 @interface Pot_CalculatorViewController ()
 
@@ -14,12 +17,14 @@
 
 @implementation Pot_CalculatorViewController
 @synthesize brain;
+@synthesize lblCote;
 
 - (id)initWithBrain:(Pot_Calculator_Brain *)aBrain
 {
     self = [super init];
     if (self) {
         self.brain = aBrain;
+        [self.brain addObserver:self forKeyPath:@"cote" options:0 context:NULL];
     }
     return self;
 }
@@ -37,6 +42,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    //self.view.layer.cornerRadius = 10.0f;
+    //self.view.layer.masksToBounds = YES;
 }
 
 - (void)viewDidUnload
@@ -48,6 +55,16 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+// informe que la cote a été mise à jour, il faut raffraichir la valeur du label
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [self.lblCote setText:[NSString stringWithFormat:@"%.2f contre 1", brain.cote]];
+    [self.view setNeedsDisplay];
+    [self.viewDeckController showCenterView:YES];
+    NSLog(@"je viens d'etre informé que la cote a changé ! (vue1)");
+    
 }
 
 @end

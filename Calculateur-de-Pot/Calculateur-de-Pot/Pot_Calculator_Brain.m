@@ -9,6 +9,9 @@
 #import "Pot_Calculator_Brain.h"
 
 @implementation Pot_Calculator_Brain
+@synthesize taillePot;
+@synthesize mise;
+@synthesize cote;
 
 - (id)init
 {
@@ -17,6 +20,18 @@
         NSLog(@"initialisation du brain OK");
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
+
+- (void)calculerCote:(float)laTailleDuPot mise:(float)laMise
+{
+    NSLog(@"calcul de la cote dans le brain");
+    self.cote = laTailleDuPot / laMise;
 }
 
 @end
