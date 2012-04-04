@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Pot_Calculator_Brain.h"
 
 @interface Pot_CalculatorViewController : UIViewController
+
+
+@property (nonatomic, assign) Pot_Calculator_Brain *brain;
+
+- (id)initWithBrain:(Pot_Calculator_Brain *)aBrain;
 
 @end

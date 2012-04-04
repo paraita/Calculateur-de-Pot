@@ -20,19 +20,23 @@
 @synthesize vue1;
 @synthesize vue2;
 @synthesize vue3;
+@synthesize brain;
 
 - (id)init
 {
     self = [super init];
     if (self) {
+        if (!self.brain) {
+            brain = [[Pot_Calculator_Brain alloc] init];
+        }
         if (!self.vue1) {
-            vue1 = [[Pot_CalculatorViewController alloc] init];
+            vue1 = [[Pot_CalculatorViewController alloc] initWithBrain:brain];
         }
         if (!self.vue2) {
-            vue2 = [[Pot_CalculatorSecondPageViewController alloc] init];
+            vue2 = [[Pot_CalculatorSecondPageViewController alloc] initWithBrain:brain];
         }
         if (!self.vue3) {
-            vue3 = [[Pot_CalculatorThirdPageViewController alloc] init];
+            vue3 = [[Pot_CalculatorThirdPageViewController alloc] initWithBrain:brain];
         }
     }
     return self;
@@ -44,6 +48,7 @@
     self.vue1 = nil;
     self.vue2 = nil;
     self.vue3 = nil;
+    self.brain = nil;
     [super dealloc];
 }
 

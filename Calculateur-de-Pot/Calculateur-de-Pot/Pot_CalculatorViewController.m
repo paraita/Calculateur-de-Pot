@@ -13,6 +13,16 @@
 @end
 
 @implementation Pot_CalculatorViewController
+@synthesize brain;
+
+- (id)initWithBrain:(Pot_Calculator_Brain *)aBrain
+{
+    self = [super init];
+    if (self) {
+        self.brain = aBrain;
+    }
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
