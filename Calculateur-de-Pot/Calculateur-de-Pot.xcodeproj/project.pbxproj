@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45A2DE19152C445F00BF80F3 /* MyCentralView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A2DE18152C445F00BF80F3 /* MyCentralView.m */; };
+		45A2DE1D152C460700BF80F3 /* backgroundcartes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 45A2DE1C152C460700BF80F3 /* backgroundcartes.jpg */; };
+		45A2DE20152C4A0200BF80F3 /* MyCardsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A2DE1F152C4A0200BF80F3 /* MyCardsView.m */; };
 		64346DB1152B52C700E54225 /* Pot_CalculatorSecondPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64346DAF152B52C700E54225 /* Pot_CalculatorSecondPageViewController.m */; };
 		64346DB2152B52C700E54225 /* Pot_CalculatorSecondPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64346DB0152B52C700E54225 /* Pot_CalculatorSecondPageViewController.xib */; };
 		64346DBB152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64346DB9152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.m */; };
@@ -24,6 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45A2DE17152C445E00BF80F3 /* MyCentralView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCentralView.h; sourceTree = "<group>"; };
+		45A2DE18152C445F00BF80F3 /* MyCentralView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCentralView.m; sourceTree = "<group>"; };
+		45A2DE1C152C460700BF80F3 /* backgroundcartes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backgroundcartes.jpg; sourceTree = "<group>"; };
+		45A2DE1E152C4A0200BF80F3 /* MyCardsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCardsView.h; sourceTree = "<group>"; };
+		45A2DE1F152C4A0200BF80F3 /* MyCardsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCardsView.m; sourceTree = "<group>"; };
 		64346DAE152B52C700E54225 /* Pot_CalculatorSecondPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pot_CalculatorSecondPageViewController.h; sourceTree = "<group>"; };
 		64346DAF152B52C700E54225 /* Pot_CalculatorSecondPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pot_CalculatorSecondPageViewController.m; sourceTree = "<group>"; };
 		64346DB0152B52C700E54225 /* Pot_CalculatorSecondPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Pot_CalculatorSecondPageViewController.xib; sourceTree = "<group>"; };
@@ -63,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45A2DE1B152C44F400BF80F3 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				45A2DE1C152C460700BF80F3 /* backgroundcartes.jpg */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		64346DB3152B52E600E54225 /* dependances */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,10 +120,15 @@
 		64D3793A1526FD3500DA794B /* Calculateur-de-Pot */ = {
 			isa = PBXGroup;
 			children = (
+				45A2DE1B152C44F400BF80F3 /* images */,
 				64346DB3152B52E600E54225 /* dependances */,
 				64D379431526FD3500DA794B /* Pot_CalculatorAppDelegate.h */,
 				64D379441526FD3500DA794B /* Pot_CalculatorAppDelegate.m */,
 				64D379461526FD3500DA794B /* Pot_CalculatorViewController.h */,
+				45A2DE17152C445E00BF80F3 /* MyCentralView.h */,
+				45A2DE1E152C4A0200BF80F3 /* MyCardsView.h */,
+				45A2DE1F152C4A0200BF80F3 /* MyCardsView.m */,
+				45A2DE18152C445F00BF80F3 /* MyCentralView.m */,
 				64D379471526FD3500DA794B /* Pot_CalculatorViewController.m */,
 				64D379491526FD3500DA794B /* Pot_CalculatorViewController.xib */,
 				64346DAE152B52C700E54225 /* Pot_CalculatorSecondPageViewController.h */,
@@ -188,6 +209,7 @@
 				64D3794B1526FD3500DA794B /* Pot_CalculatorViewController.xib in Resources */,
 				64346DB2152B52C700E54225 /* Pot_CalculatorSecondPageViewController.xib in Resources */,
 				64346DBC152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.xib in Resources */,
+				45A2DE1D152C460700BF80F3 /* backgroundcartes.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +227,8 @@
 				64346DBB152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.m in Sources */,
 				64ACFBD8152C36A400098A01 /* IIViewDeckController.m in Sources */,
 				64ACFBD9152C36A400098A01 /* WrapController.m in Sources */,
+				45A2DE19152C445F00BF80F3 /* MyCentralView.m in Sources */,
+				45A2DE20152C4A0200BF80F3 /* MyCardsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
