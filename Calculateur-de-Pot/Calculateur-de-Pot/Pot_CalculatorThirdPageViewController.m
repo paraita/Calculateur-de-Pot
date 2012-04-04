@@ -89,6 +89,8 @@
     }
     
     [brain calculerCote:taillePot mise:mise];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshCote" object:brain];
+    NSLog(@"on a calculé la nouvelle cote et prevenu les observeurs");
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

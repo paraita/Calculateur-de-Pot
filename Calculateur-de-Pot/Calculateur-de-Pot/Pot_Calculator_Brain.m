@@ -31,7 +31,7 @@
 - (void)calculerCote:(float)laTailleDuPot mise:(float)laMise
 {
     NSLog(@"calcul de la cote dans le brain");
-    self.cote = laTailleDuPot / laMise;
+    cote = laTailleDuPot / laMise;
 }
 
 @end

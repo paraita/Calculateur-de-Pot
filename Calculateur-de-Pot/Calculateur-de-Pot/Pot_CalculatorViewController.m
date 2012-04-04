@@ -24,7 +24,9 @@
     self = [super init];
     if (self) {
         self.brain = aBrain;
-        [self.brain addObserver:self forKeyPath:@"cote" options:0 context:NULL];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(refreshCoteLbl:)
+                                                      name:@"refreshCote" object:nil];
     }
     return self;
 }
@@ -58,7 +60,7 @@
 }
 
 // informe que la cote a été mise à jour, il faut raffraichir la valeur du label
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+- (void)refreshCoteLbl:(NSNotification *)notification
 {
     [self.lblCote setText:[NSString stringWithFormat:@"%.2f contre 1", brain.cote]];
     [self.view setNeedsDisplay];

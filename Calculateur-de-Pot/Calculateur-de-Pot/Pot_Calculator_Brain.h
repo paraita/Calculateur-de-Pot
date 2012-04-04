@@ -12,7 +12,7 @@
 
 @property (nonatomic, assign) float taillePot;
 @property (nonatomic, assign) float mise;
-@property (nonatomic, assign) float cote;
+@property (nonatomic, readonly) float cote;
 
 - (void)calculerCote:(float)laTailleDuPot mise:(float)laMise;
 

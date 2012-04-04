@@ -16,5 +16,4 @@
 @property (nonatomic, assign) IBOutlet UILabel *lblCote;
 
 - (id)initWithBrain:(Pot_Calculator_Brain *)aBrain;
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context;
 @end
