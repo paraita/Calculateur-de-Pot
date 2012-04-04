@@ -9,16 +9,35 @@
 #import "Pot_CalculatorAppDelegate.h"
 
 #import "Pot_CalculatorViewController.h"
+#import "Pot_CalculatorSecondPageViewController.h"
+#import "Pot_CalculatorThirdPageViewController.h"
+#import "IIViewDeckController.h"
+
 
 @implementation Pot_CalculatorAppDelegate
 
 @synthesize window = _window;
-@synthesize viewController = _viewController;
+@synthesize vue1 = _vue1;
+@synthesize vue2 = _vue2;
+@synthesize vue3 = _vue3;
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.vue1 = [[Pot_CalculatorViewController alloc] init];
+        self.vue2 = [[Pot_CalculatorSecondPageViewController alloc] init];
+        self.vue3 = [[Pot_CalculatorThirdPageViewController alloc] init];
+    }
+    return self;
+}
 
 - (void)dealloc
 {
     [_window release];
-    [_viewController release];
+    self.vue1 = nil;
+    self.vue2 = nil;
+    self.vue3 = nil;
     [super dealloc];
 }
 
@@ -26,8 +45,15 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.viewController = [[[Pot_CalculatorViewController alloc] initWithNibName:@"Pot_CalculatorViewController" bundle:nil] autorelease];
-    self.window.rootViewController = self.viewController;
+    
+    //self.viewController = [[[Pot_CalculatorViewController alloc] initWithNibName:@"Pot_CalculatorViewController" bundle:nil] autorelease];
+    
+    IIViewDeckController *dc = [[IIViewDeckController alloc] initWithCenterViewController:self.vue1];
+    
+    dc.leftController = self.vue2;
+    dc.rightController = self.vue3;
+    
+    self.window.rootViewController = dc;
     [self.window makeKeyAndVisible];
     return YES;
 }

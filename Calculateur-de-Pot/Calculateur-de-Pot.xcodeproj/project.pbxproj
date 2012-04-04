@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64346DA9152B506900E54225 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64346DA8152B506900E54225 /* IIViewDeckController.m */; };
+		64346DAD152B521000E54225 /* WrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64346DAC152B521000E54225 /* WrapController.m */; };
+		64346DB1152B52C700E54225 /* Pot_CalculatorSecondPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64346DAF152B52C700E54225 /* Pot_CalculatorSecondPageViewController.m */; };
+		64346DB2152B52C700E54225 /* Pot_CalculatorSecondPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64346DB0152B52C700E54225 /* Pot_CalculatorSecondPageViewController.xib */; };
+		64346DBB152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64346DB9152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.m */; };
+		64346DBC152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64346DBA152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.xib */; };
 		64D379351526FD3500DA794B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D379341526FD3500DA794B /* UIKit.framework */; };
 		64D379371526FD3500DA794B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D379361526FD3500DA794B /* Foundation.framework */; };
 		64D379391526FD3500DA794B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D379381526FD3500DA794B /* CoreGraphics.framework */; };
@@ -18,6 +24,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		64346DA7152B506900E54225 /* IIViewDeckController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIViewDeckController.h; sourceTree = "<group>"; };
+		64346DA8152B506900E54225 /* IIViewDeckController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIViewDeckController.m; sourceTree = "<group>"; };
+		64346DAB152B521000E54225 /* WrapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WrapController.h; sourceTree = "<group>"; };
+		64346DAC152B521000E54225 /* WrapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WrapController.m; sourceTree = "<group>"; };
+		64346DAE152B52C700E54225 /* Pot_CalculatorSecondPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pot_CalculatorSecondPageViewController.h; sourceTree = "<group>"; };
+		64346DAF152B52C700E54225 /* Pot_CalculatorSecondPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pot_CalculatorSecondPageViewController.m; sourceTree = "<group>"; };
+		64346DB0152B52C700E54225 /* Pot_CalculatorSecondPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Pot_CalculatorSecondPageViewController.xib; sourceTree = "<group>"; };
+		64346DB8152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Pot_CalculatorThirdPageViewController.h; sourceTree = "<group>"; };
+		64346DB9152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pot_CalculatorThirdPageViewController.m; sourceTree = "<group>"; };
+		64346DBA152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Pot_CalculatorThirdPageViewController.xib; sourceTree = "<group>"; };
 		64D379301526FD3500DA794B /* Calculateur-de-Pot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calculateur-de-Pot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64D379341526FD3500DA794B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		64D379361526FD3500DA794B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -47,6 +63,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64346DB3152B52E600E54225 /* dependances */ = {
+			isa = PBXGroup;
+			children = (
+				64346DAB152B521000E54225 /* WrapController.h */,
+				64346DAC152B521000E54225 /* WrapController.m */,
+				64346DA7152B506900E54225 /* IIViewDeckController.h */,
+				64346DA8152B506900E54225 /* IIViewDeckController.m */,
+			);
+			name = dependances;
+			sourceTree = "<group>";
+		};
 		64D379251526FD3500DA794B = {
 			isa = PBXGroup;
 			children = (
@@ -77,11 +104,18 @@
 		64D3793A1526FD3500DA794B /* Calculateur-de-Pot */ = {
 			isa = PBXGroup;
 			children = (
+				64346DB3152B52E600E54225 /* dependances */,
 				64D379431526FD3500DA794B /* Pot_CalculatorAppDelegate.h */,
 				64D379441526FD3500DA794B /* Pot_CalculatorAppDelegate.m */,
 				64D379461526FD3500DA794B /* Pot_CalculatorViewController.h */,
 				64D379471526FD3500DA794B /* Pot_CalculatorViewController.m */,
 				64D379491526FD3500DA794B /* Pot_CalculatorViewController.xib */,
+				64346DAE152B52C700E54225 /* Pot_CalculatorSecondPageViewController.h */,
+				64346DAF152B52C700E54225 /* Pot_CalculatorSecondPageViewController.m */,
+				64346DB0152B52C700E54225 /* Pot_CalculatorSecondPageViewController.xib */,
+				64346DB8152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.h */,
+				64346DB9152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.m */,
+				64346DBA152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.xib */,
 				64D3793B1526FD3500DA794B /* Supporting Files */,
 			);
 			path = "Calculateur-de-Pot";
@@ -152,6 +186,8 @@
 			files = (
 				64D3793F1526FD3500DA794B /* InfoPlist.strings in Resources */,
 				64D3794B1526FD3500DA794B /* Pot_CalculatorViewController.xib in Resources */,
+				64346DB2152B52C700E54225 /* Pot_CalculatorSecondPageViewController.xib in Resources */,
+				64346DBC152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +201,10 @@
 				64D379411526FD3500DA794B /* main.m in Sources */,
 				64D379451526FD3500DA794B /* Pot_CalculatorAppDelegate.m in Sources */,
 				64D379481526FD3500DA794B /* Pot_CalculatorViewController.m in Sources */,
+				64346DA9152B506900E54225 /* IIViewDeckController.m in Sources */,
+				64346DAD152B521000E54225 /* WrapController.m in Sources */,
+				64346DB1152B52C700E54225 /* Pot_CalculatorSecondPageViewController.m in Sources */,
+				64346DBB152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +318,7 @@
 				64D379501526FD3500DA794B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

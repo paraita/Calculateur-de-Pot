@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Pot_CalculatorViewController.h"
+#import "Pot_CalculatorSecondPageViewController.h"
+#import "Pot_CalculatorThirdPageViewController.h"
 
-@class Pot_CalculatorViewController;
 
 @interface Pot_CalculatorAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) Pot_CalculatorViewController *viewController;
-
+@property (strong, nonatomic) Pot_CalculatorViewController *vue1;
+@property (strong, nonatomic) Pot_CalculatorSecondPageViewController *vue2;
+@property (strong, nonatomic) Pot_CalculatorThirdPageViewController *vue3;
 @end
