@@ -80,6 +80,10 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="1015603970">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">dos.png</string>
+						</object>
 					</object>
 					<object class="IBUIButton" id="229807399">
 						<reference key="NSNextResponder" ref="774585933"/>
@@ -102,6 +106,7 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="185637339"/>
+						<reference key="IBUINormalBackgroundImage" ref="1015603970"/>
 					</object>
 					<object class="IBUIButton" id="373254524">
 						<reference key="NSNextResponder" ref="774585933"/>
@@ -124,6 +129,7 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="185637339"/>
+						<reference key="IBUINormalBackgroundImage" ref="1015603970"/>
 					</object>
 					<object class="IBUIButton" id="344489583">
 						<reference key="NSNextResponder" ref="774585933"/>
@@ -146,6 +152,7 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="185637339"/>
+						<reference key="IBUINormalBackgroundImage" ref="1015603970"/>
 					</object>
 					<object class="IBUIButton" id="438936302">
 						<reference key="NSNextResponder" ref="774585933"/>
@@ -168,6 +175,7 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="185637339"/>
+						<reference key="IBUINormalBackgroundImage" ref="1015603970"/>
 					</object>
 					<object class="IBUIButton" id="490396761">
 						<reference key="NSNextResponder" ref="774585933"/>
@@ -190,6 +198,7 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="185637339"/>
+						<reference key="IBUINormalImage" ref="1015603970"/>
 					</object>
 					<object class="IBUIButton" id="497638313">
 						<reference key="NSNextResponder" ref="774585933"/>
@@ -212,6 +221,7 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="185637339"/>
+						<reference key="IBUINormalImage" ref="1015603970"/>
 					</object>
 					<object class="IBUIButton" id="890292951">
 						<reference key="NSNextResponder" ref="774585933"/>
@@ -234,6 +244,7 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="185637339"/>
+						<reference key="IBUINormalImage" ref="1015603970"/>
 					</object>
 					<object class="IBUILabel" id="152226206">
 						<reference key="NSNextResponder" ref="774585933"/>
@@ -305,6 +316,7 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="185637339"/>
+						<reference key="IBUINormalImage" ref="1015603970"/>
 					</object>
 					<object class="IBUILabel" id="447266628">
 						<reference key="NSNextResponder" ref="774585933"/>
@@ -748,10 +760,10 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">backgroundcartes.jpg</string>
-			<string key="NS.object.0">{300, 450}</string>
-		</object>
+		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="backgroundcartes.jpg">{300, 450}</string>
+			<string key="dos.png">{125, 185}</string>
+		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">534</string>
 	</data>
 </archive>
