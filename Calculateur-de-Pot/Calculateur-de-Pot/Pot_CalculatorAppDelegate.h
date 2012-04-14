@@ -10,6 +10,7 @@
 #import "Pot_CalculatorViewController.h"
 #import "Pot_CalculatorSecondPageViewController.h"
 #import "Pot_CalculatorThirdPageViewController.h"
+
 #import "Pot_Calculator_Brain.h"
 
 
@@ -20,5 +21,6 @@
 @property (retain, nonatomic) Pot_CalculatorViewController *vue1;
 @property (retain, nonatomic) Pot_CalculatorSecondPageViewController *vue2;
 @property (retain, nonatomic) Pot_CalculatorThirdPageViewController *vue3;
+
 @property (retain, nonatomic) Pot_Calculator_Brain *brain;
 @end

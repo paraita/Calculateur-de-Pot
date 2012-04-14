@@ -9,7 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Pot_Calculator_Brain.h"
 
-@interface Pot_CalculatorViewController : UIViewController
+
+@interface Pot_CalculatorViewController : UIViewController{
+
+    UIPickerView *myPickerView;
+    NSMutableArray *tab_Hauteur;
+    NSMutableArray *tab_Couleur;
+    UIButton *doneButton ;
+    
+}
 
 
 @property (nonatomic, assign) Pot_Calculator_Brain *brain;
@@ -26,4 +34,7 @@
 
 - (IBAction)changeBackgrundcard:(id)sender;
 - (id)initWithBrain:(Pot_Calculator_Brain *)aBrain;
+- (void) buttonPressed:(UIButton *) pressed;
+- (IBAction)buttonPressed1:(id)sender;
+-(IBAction)doneMethod:(id)sender;
 @end

@@ -67,6 +67,7 @@
     self.window.rootViewController = dc;
     [self.window makeKeyAndVisible];
     
+    
     NSLog(@"fini de charger");
     return YES;
 }
