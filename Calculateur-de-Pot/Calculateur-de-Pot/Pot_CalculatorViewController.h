@@ -10,7 +10,7 @@
 #import "Pot_Calculator_Brain.h"
 
 
-@interface Pot_CalculatorViewController : UIViewController{
+@interface Pot_CalculatorViewController : UIViewController <UIPickerViewDelegate> {
 
     UIPickerView *myPickerView;
     NSMutableArray *tab_Hauteur;
