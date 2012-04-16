@@ -12,18 +12,29 @@
 @synthesize taillePot;
 @synthesize mise;
 @synthesize cote;
+@synthesize joueur;
+@synthesize adversaire;
+@synthesize table;
+
 
 - (id)init
 {
     self = [super init];
     if (self) {
         NSLog(@"initialisation du brain OK");
+        self.table = [[NSMutableArray alloc] initWithCapacity:5];
+        self.joueur = [[NSMutableArray alloc] initWithCapacity:2];
+        self.adversaire = [[NSMutableArray alloc] initWithCapacity:2];
+        
     }
     return self;
 }
 
 - (void)dealloc
 {
+    self.table = nil;
+    self.joueur = nil;
+    self.adversaire = nil;
     [super dealloc];
 }
 

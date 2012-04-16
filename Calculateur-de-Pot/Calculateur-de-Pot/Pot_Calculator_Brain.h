@@ -13,6 +13,9 @@
 @property (nonatomic, assign) float taillePot;
 @property (nonatomic, assign) float mise;
 @property (nonatomic, readonly) float cote;
+@property (nonatomic, assign) NSArray *joueur;
+@property (nonatomic, assign) NSArray *adversaire;
+@property (nonatomic, assign) NSArray *table;
 
 - (void)calculerCote:(float)laTailleDuPot mise:(float)laMise;
 
