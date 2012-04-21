@@ -8,23 +8,25 @@
 
 #import "Pot_Calculator_Brain.h"
 
+@interface Pot_Calculator_Brain ()
+@property (nonatomic, assign) NSMutableArray *cartes;
+@end
+
 @implementation Pot_Calculator_Brain
 @synthesize taillePot;
 @synthesize mise;
 @synthesize cote;
-@synthesize joueur;
-@synthesize adversaire;
-@synthesize table;
+@synthesize cartes;
 
+#pragma mark - Constructeur/Destructeur
 
 - (id)init
 {
     self = [super init];
     if (self) {
         NSLog(@"initialisation du brain OK");
-        self.table = [[NSMutableArray alloc] initWithCapacity:5];
-        self.joueur = [[NSMutableArray alloc] initWithCapacity:2];
-        self.adversaire = [[NSMutableArray alloc] initWithCapacity:2];
+        self.cartes = [[NSMutableArray alloc] initWithCapacity:9];
+        //TODO insérer des cartes dummy
         
     }
     return self;
@@ -32,12 +34,12 @@
 
 - (void)dealloc
 {
-    self.table = nil;
-    self.joueur = nil;
-    self.adversaire = nil;
+    self.cartes = nil;
     [super dealloc];
 }
 
+
+#pragma mark - implémentation des setters/getters
 
 - (void)calculerCote:(float)laTailleDuPot mise:(float)laMise
 {
@@ -45,4 +47,83 @@
     cote = laTailleDuPot / laMise;
 }
 
+- (Carte *)premiereCarteJoueur
+{
+    return [self.cartes objectAtIndex:0];
+}
+
+- (Carte *)deuxiemeCarteJoueur
+{
+    return [self.cartes objectAtIndex:1];
+}
+
+- (Carte *)premiereCarteAdversaire
+{
+    return [self.cartes objectAtIndex:2];
+}
+
+- (Carte *)deuxiemeCarteAdversaire
+{
+    return [self.cartes objectAtIndex:3];
+}
+
+- (Carte *)carteDuTapis:(int)numero
+{
+    if (numero > 0 && numero < 6) {
+        return [self.cartes objectAtIndex:(numero + 3)];
+    }
+    else {
+        NSLog(@"erreur dans la méthode carteDuTapis: mauvaise position (%d)", numero);
+        return nil;
+    }
+}
+
+- (void)setPremiereCarteJoueur:(Carte *)carte
+{
+    [self.cartes replaceObjectAtIndex:0 withObject:carte];
+}
+
+- (void)setDeuxiemeCarteJoueur:(Carte *)carte
+{
+    [self.cartes replaceObjectAtIndex:1 withObject:carte];
+}
+
+- (void)setPremiereCarteAdversaire:(Carte *)carte
+{
+    [self.cartes replaceObjectAtIndex:2 withObject:carte];
+}
+
+- (void)setDeuxiemeCarteAdversaire:(Carte *)carte
+{
+    [self.cartes replaceObjectAtIndex:3 withObject:carte];
+}
+
+- (void)setCarteDuTapis:(Carte *)carte numero:(int)unNumero
+{
+    if (unNumero > 0 && unNumero < 6) {
+        [self.cartes replaceObjectAtIndex:(3 + unNumero) withObject:carte];
+    }
+    else {
+        NSLog(@"erreur dans la méthode setCarteDuTapis: mauvaise position: %d", unNumero);
+    }
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
