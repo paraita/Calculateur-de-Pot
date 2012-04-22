@@ -133,6 +133,7 @@
 		64D379451526FD3500DA794B /* Pot_CalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D379441526FD3500DA794B /* Pot_CalculatorAppDelegate.m */; };
 		64D379481526FD3500DA794B /* Pot_CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D379471526FD3500DA794B /* Pot_CalculatorViewController.m */; };
 		64D3794B1526FD3500DA794B /* Pot_CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64D379491526FD3500DA794B /* Pot_CalculatorViewController.xib */; };
+		64F7FDE5154352A0000A71EF /* PokerOddsCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F7FDE4154352A0000A71EF /* PokerOddsCalculator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -274,6 +275,8 @@
 		64D379461526FD3500DA794B /* Pot_CalculatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pot_CalculatorViewController.h; sourceTree = "<group>"; };
 		64D379471526FD3500DA794B /* Pot_CalculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pot_CalculatorViewController.m; sourceTree = "<group>"; };
 		64D3794A1526FD3500DA794B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Pot_CalculatorViewController.xib; sourceTree = "<group>"; };
+		64F7FDE3154352A0000A71EF /* PokerOddsCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokerOddsCalculator.h; sourceTree = "<group>"; };
+		64F7FDE4154352A0000A71EF /* PokerOddsCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokerOddsCalculator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,6 +412,8 @@
 		64346DB3152B52E600E54225 /* dependances */ = {
 			isa = PBXGroup;
 			children = (
+				64F7FDE3154352A0000A71EF /* PokerOddsCalculator.h */,
+				64F7FDE4154352A0000A71EF /* PokerOddsCalculator.m */,
 				64ACFBD4152C36A400098A01 /* IIViewDeckController.h */,
 				64ACFBD5152C36A400098A01 /* IIViewDeckController.m */,
 				64ACFBD6152C36A400098A01 /* WrapController.h */,
@@ -447,10 +452,6 @@
 		64D3793A1526FD3500DA794B /* Calculateur-de-Pot */ = {
 			isa = PBXGroup;
 			children = (
-				45A2DE1B152C44F400BF80F3 /* images */,
-				64346DB3152B52E600E54225 /* dependances */,
-				45A2DE1E152C4A0200BF80F3 /* MyCardsView.h */,
-				45A2DE1F152C4A0200BF80F3 /* MyCardsView.m */,
 				64D379431526FD3500DA794B /* Pot_CalculatorAppDelegate.h */,
 				64D379441526FD3500DA794B /* Pot_CalculatorAppDelegate.m */,
 				64D379461526FD3500DA794B /* Pot_CalculatorViewController.h */,
@@ -462,6 +463,10 @@
 				64346DB8152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.h */,
 				64346DB9152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.m */,
 				64346DBA152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.xib */,
+				45A2DE1B152C44F400BF80F3 /* images */,
+				64346DB3152B52E600E54225 /* dependances */,
+				45A2DE1E152C4A0200BF80F3 /* MyCardsView.h */,
+				45A2DE1F152C4A0200BF80F3 /* MyCardsView.m */,
 				649F2551152C51A70050E4D5 /* Pot_Calculator_Brain.h */,
 				649F2552152C51A70050E4D5 /* Pot_Calculator_Brain.m */,
 				64851418153A0FE8000DF1C9 /* Carte.h */,
@@ -667,6 +672,7 @@
 				45A2DE20152C4A0200BF80F3 /* MyCardsView.m in Sources */,
 				649F2553152C51A70050E4D5 /* Pot_Calculator_Brain.m in Sources */,
 				6485141A153A0FE8000DF1C9 /* Carte.m in Sources */,
+				64F7FDE5154352A0000A71EF /* PokerOddsCalculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

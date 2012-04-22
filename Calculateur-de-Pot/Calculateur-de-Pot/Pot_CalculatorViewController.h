@@ -16,7 +16,10 @@
     NSMutableArray *tab_Hauteur;
     NSMutableArray *tab_Couleur;
     UIButton *doneButton ;
-    
+    UIButton *cancelButton ;
+    UIButton *currentButton;
+    //NSMutableString *currentImageString;
+    UIImage *currentImage;
 }
 
 
@@ -31,10 +34,12 @@
 @property (nonatomic, assign) IBOutlet UIButton *flopTrois;
 @property (nonatomic, assign) IBOutlet UIButton *turn;
 @property (nonatomic, assign) IBOutlet UIButton *river;
+@property (retain) NSMutableString *currentImageString;
 
 - (IBAction)changeBackgrundcard:(id)sender;
 - (id)initWithBrain:(Pot_Calculator_Brain *)aBrain;
 - (void) buttonPressed:(UIButton *) pressed;
 - (IBAction)buttonPressed1:(id)sender;
 -(IBAction)doneMethod:(id)sender;
+-(IBAction)cancelMethod:(id)sender;
 @end

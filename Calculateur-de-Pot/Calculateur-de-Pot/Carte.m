@@ -13,6 +13,7 @@
 @synthesize couleur;
 @synthesize valeur;
 @synthesize image;
+@synthesize estPrise;
 
 # pragma mark - Vie et mort d'une carte
 
@@ -27,6 +28,7 @@
 {
     self = [super init];
     if (self) {
+        estPrise = NO;
         couleur = uneCouleur;
         valeur = uneValeur;
         image = uneImage;
@@ -53,7 +55,8 @@
             couleurString = @"Trèfle";
             break;
     }
-    return [NSString stringWithFormat:@"[%d de %@", valeur, couleurString];
+    return [NSString stringWithFormat:@"[%d de %@]", valeur, couleurString];
 }
+
 
 @end
