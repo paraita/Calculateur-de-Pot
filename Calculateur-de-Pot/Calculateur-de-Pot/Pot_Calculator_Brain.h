@@ -24,10 +24,13 @@ typedef enum {
 typedef enum { PREFLOP, FLOP, TURN, RIVER } etatPartie;
 
 @interface Pot_Calculator_Brain : NSObject
-
+{
+    float coteAmelioration;
+}
 @property (nonatomic, assign) float taillePot;
 @property (nonatomic, assign) float mise;
-@property (nonatomic, readonly) float cote;
+@property (nonatomic, readonly) float cotePot;
+@property (nonatomic, readonly) float coteAmelioration;
 @property (nonatomic, assign) int etat;
 
 - (void)setPremiereCarteJoueur:(Carte *)carte;
@@ -44,6 +47,5 @@ typedef enum { PREFLOP, FLOP, TURN, RIVER } etatPartie;
 - (void)calculerCote:(float)laTailleDuPot mise:(float)laMise;
 - (void)detecterMain;
 - (NSString *)codify:(Carte *)c;
-- (void)detecterMainOld;
 
 @end

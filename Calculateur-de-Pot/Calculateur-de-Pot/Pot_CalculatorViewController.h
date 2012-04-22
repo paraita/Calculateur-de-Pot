@@ -24,7 +24,8 @@
 
 
 @property (nonatomic, assign) Pot_Calculator_Brain *brain;
-@property (nonatomic, assign) IBOutlet UILabel *lblCote;
+@property (nonatomic, assign) IBOutlet UILabel *lblCotePot;
+@property (nonatomic, assign) IBOutlet UILabel *lblCoteAmelioration;
 @property (nonatomic, assign) IBOutlet UIButton *maCarteUn;
 @property (nonatomic, assign) IBOutlet UIButton *maCarteDeux;
 @property (nonatomic, assign) IBOutlet UIButton *adversaireCarteUn;
@@ -42,4 +43,8 @@
 - (IBAction)buttonPressed1:(id)sender;
 -(IBAction)doneMethod:(id)sender;
 -(IBAction)cancelMethod:(id)sender;
+-(int)convertHauteurToInt:(NSString*)hauteur;
+-(void)setCarteWithButtonSelected:(UIButton*)myButton carte:(Carte*)maCarte;
+-(void)setUneCarte:(NSString*)couleur hauteur:(NSString*)uneHauteur;
+- (void)resetTapis;
 @end

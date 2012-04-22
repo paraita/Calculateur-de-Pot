@@ -17,7 +17,7 @@
 
 @implementation Pot_CalculatorViewController
 @synthesize brain;
-@synthesize lblCote;
+@synthesize lblCotePot, lblCoteAmelioration;
 @synthesize maCarteUn, maCarteDeux, adversaireCarteUn, adversaireCarteDeux, flopUn, flopDeux, flopTrois, turn, river, currentImageString;
 
 - (id)initWithBrain:(Pot_Calculator_Brain *)aBrain
@@ -122,11 +122,110 @@
     
 }
 
+-(int)convertHauteurToInt:(NSString*)hauteur{
+    if([hauteur isEqualToString:@"as"]){
+        return 1;   
+    }
+    if([hauteur isEqualToString:@"2"]){
+        return 2;
+    }if([hauteur isEqualToString:@"3"]){
+        return 3;
+    }if([hauteur isEqualToString:@"4"]){
+        return 4;
+    }if([hauteur isEqualToString:@"5"]){
+        return 5;
+    }if([hauteur isEqualToString:@"6"]){
+        return 6;
+    }if([hauteur isEqualToString:@"7"]){
+        return 7;
+    }if([hauteur isEqualToString:@"8"]){
+        return 8;
+    }if([hauteur isEqualToString:@"9"]){
+        return 9;
+    }if([hauteur isEqualToString:@"10"]){
+        return 10;
+    }if([hauteur isEqualToString:@"valet"]){
+        return 11;
+    }if([hauteur isEqualToString:@"dame"]){
+        return 12;
+    }if([hauteur isEqualToString:@"roi"]){
+        return 13;
+    }
+    else{
+        return 0;
+        NSLog(@"a retourne 0");
+    }
+    
+}
 
+-(void)setUneCarte:(NSString*)couleur hauteur:(NSString*)uneHauteur{
+    if ([couleur isEqualToString:@"Coeur"]) {
+        Carte *c = [[Carte alloc] initWithColor:COEUR valeur:[self convertHauteurToInt:uneHauteur] img:nil];
+        NSLog(@"passage reussi");
+        [self setCarteWithButtonSelected:currentButton carte:c];
+        NSLog(@"Creation carte reussi et set reussi");
+        
+    }
+    else{
+        if ([couleur isEqualToString:@"Carreau"]) {
+            Carte *c = [[Carte alloc] initWithColor:CARREAU valeur:[self convertHauteurToInt:uneHauteur] img:nil];
+            [self setCarteWithButtonSelected:currentButton carte:c];
+        }
+        else{
+            if ([couleur isEqualToString:@"Pique"]) {
+                Carte *c = [[Carte alloc] initWithColor:PIQUE valeur:[self convertHauteurToInt:uneHauteur] img:nil];
+                [self setCarteWithButtonSelected:currentButton carte:c];
+                //return c;
+            } else {
+                Carte *c = [[Carte alloc] initWithColor:TREFLE valeur:[self convertHauteurToInt:uneHauteur] img:nil];
+                [self setCarteWithButtonSelected:currentButton carte:c];
+                //return c;
+            }
+        }
+    }
+}
+
+-(void)setCarteWithButtonSelected:(UIButton*)myButton carte:(Carte*)maCarte{
+    if([[myButton currentTitle] isEqualToString:@"Macarte1"]){
+        [brain setPremiereCarteJoueur:maCarte];
+    }
+    if([[myButton currentTitle] isEqualToString:@"Macarte2"]){
+        [brain setDeuxiemeCarteJoueur:maCarte];
+    }
+    if([[myButton currentTitle] isEqualToString:@"Advcarte1"]){
+        [brain setPremiereCarteAdversaire:maCarte];
+    }
+    if([[myButton currentTitle] isEqualToString:@"Advcarte2"]){
+        [brain setDeuxiemeCarteAdversaire:maCarte];
+    }
+    if([[myButton currentTitle] isEqualToString:@"flop1"]){
+        [brain setCarteDuTapis:maCarte numero:1];
+    }
+    if([[myButton currentTitle] isEqualToString:@"flop2"]){
+        [brain setCarteDuTapis:maCarte numero:2];
+    }
+    if([[myButton currentTitle] isEqualToString:@"flop3"]){
+        [brain setCarteDuTapis:maCarte numero:3];
+    }
+    if([[myButton currentTitle] isEqualToString:@"turn"]){
+        [brain setCarteDuTapis:maCarte numero:4];
+    }
+    if([[myButton currentTitle] isEqualToString:@"river"]){
+        [brain setCarteDuTapis:maCarte numero:5];
+    }
+}
 
 -(IBAction)doneMethod:(id)sender
 {
     //Partie brain
+    
+    //On crée la carte grace a la selection du PickerView
+    //Carte *carte1 = [[Carte alloc] init];
+    //carte1 = 
+    [self setUneCarte:[tab_Couleur objectAtIndex:[myPickerView selectedRowInComponent:1]] hauteur:[tab_Hauteur objectAtIndex:[myPickerView selectedRowInComponent:0]]];
+    NSLog(@"Creation reussi");
+    
+    
     
     //Partie vue
     
@@ -213,6 +312,8 @@
         default:
             break;
     }
+    // jamais atteint
+    return 0.0;
 }
 
 
@@ -221,12 +322,24 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-
+- (void)resetTapis
+{
+    [self.maCarteUn setImage:[UIImage imageNamed:@"dos.png"] forState:UIControlStateNormal];
+    [self.maCarteDeux setImage:[UIImage imageNamed:@"dos.png"] forState:UIControlStateNormal];
+    [self.adversaireCarteUn setImage:[UIImage imageNamed:@"dos.png"] forState:UIControlStateNormal];
+    [self.adversaireCarteDeux setImage:[UIImage imageNamed:@"dos.png"] forState:UIControlStateNormal];
+    [self.flopUn setImage:[UIImage imageNamed:@"dos.png"] forState:UIControlStateNormal];
+    [self.flopDeux setImage:[UIImage imageNamed:@"dos.png"] forState:UIControlStateNormal];
+    [self.flopTrois setImage:[UIImage imageNamed:@"dos.png"] forState:UIControlStateNormal];
+    [self.turn setImage:[UIImage imageNamed:@"dos.png"] forState:UIControlStateNormal];
+    [self.river setImage:[UIImage imageNamed:@"dos.png"] forState:UIControlStateNormal];
+}
 
 // informe que la cote a été mise à jour, il faut raffraichir la valeur du label
 - (void)refreshCoteLbl:(NSNotification *)notification
 {
-    [self.lblCote setText:[NSString stringWithFormat:@"%.2f contre 1", brain.cote]];
+    [self.lblCotePot setText:[NSString stringWithFormat:@"%.2f : 1", brain.cotePot]];
+    [self.lblCoteAmelioration setText:[NSString stringWithFormat:@"%.2f : 1", brain.coteAmelioration]];
     [self.view setNeedsDisplay];
     [self.viewDeckController showCenterView:YES];
     NSLog(@"je viens d'etre informé que la cote a changé ! (vue1)");

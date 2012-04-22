@@ -22,7 +22,7 @@
 @implementation Pot_Calculator_Brain
 @synthesize taillePot;
 @synthesize mise;
-@synthesize cote;
+@synthesize cotePot, coteAmelioration;
 @synthesize cartesEnJeu;
 @synthesize paquetCartes;
 @synthesize coupsDispo;
@@ -36,6 +36,8 @@
     if (self) {
         
         internalBrain = [[PokerOddsCalculator alloc] init];
+        
+        self.etat = PREFLOP;
         
         // coups dispo
         self.coupsDispo = calloc(9, sizeof(int));
@@ -53,6 +55,9 @@
         
         // cartes du paquet
         self.paquetCartes = [[NSArray alloc] initWithObjects:
+                             [[[Carte alloc] initWithColor:DUMMY
+                                                    valeur:0
+                                                       img:[UIImage imageNamed:@"dos.png"]] autorelease],
                              [[[Carte alloc] initWithColor:COEUR
                                                     valeur:1
                                                        img:[UIImage imageNamed:@"asCoeur.png"]] autorelease],
@@ -211,7 +216,7 @@
                                                        img:[UIImage imageNamed:@"roiTrefle.png"]] autorelease],
                              nil];
         NSLog(@"initialisation du brain OK");
-        [self detecterMain];
+        //[self detecterMain];
     }
     return self;
 }
@@ -296,11 +301,13 @@
 - (void)calculerCote:(float)laTailleDuPot mise:(float)laMise
 {
     NSLog(@"calcul de la cote dans le brain");
-    cote = laTailleDuPot / laMise;
+    cotePot = laTailleDuPot / laMise;
+    [self detecterMain];
 }
 
 - (void)detecterMain
 {
+    
     if (etat == PREFLOP) {
         internalBrain.cards = nil;
         internalBrain.cards = [[NSArray alloc] initWithObjects:[self codify:[self premiereCarteJoueur]],
@@ -344,17 +351,180 @@
     }
     
     
-    /*
-    NSLog(@"chance d'avoir une paire: %g", [internalBrain chanceOfPair]);
-    NSLog(@"chance d'avoir deux paires: %g", [internalBrain chanceOfTwoPair]);
-    NSLog(@"chance d'avoir un brelan: %g", [internalBrain chanceOfThreeOfAKind]);
-    NSLog(@"chance d'avoir un carré: %g", [internalBrain chanceOfFourOfAKind]);
-    NSLog(@"chance d'avoir une couleur: %g", [internalBrain chanceOfFlush]);
-    NSLog(@"chance d'avoir un full: %g", [internalBrain chanceOfFullHouse]);
-    NSLog(@"chance d'avoir une suite: %g", [internalBrain chanceOfStraight]);
-    NSLog(@"chance d'avoir une quinteflush: %g", [internalBrain chanceOfStraightFlush]);
-     */
+    //internalBrain.cards = [[NSArray alloc] initWithObjects:@"3h", @"4h", @"5s", @"6h", @"8h", nil];
     
+    double unePaire = [internalBrain chanceOfPair];
+    double deuxPaires = [internalBrain chanceOfTwoPair];
+    //double brelan = [internalBrain chanceOfThreeOfAKind];
+    double carre = [internalBrain chanceOfFourOfAKind];
+    double couleur = [internalBrain chanceOfFlush];
+    double full = [internalBrain chanceOfFullHouse];
+    double suite = [internalBrain chanceOfStraight];
+    double quinteflush = [internalBrain chanceOfStraightFlush];
+    
+    NSDictionary *motifs = [[NSDictionary alloc] initWithObjects:[[[NSArray alloc] initWithObjects:
+                                                                  [NSNumber numberWithDouble:unePaire], 
+                                                                  [NSNumber numberWithDouble:deuxPaires],
+                                                                  //[NSNumber numberWithDouble:brelan],
+                                                                  [NSNumber numberWithDouble:carre],
+                                                                  [NSNumber numberWithDouble:couleur],
+                                                                  [NSNumber numberWithDouble:full],
+                                                                  [NSNumber numberWithDouble:suite],
+                                                                  [NSNumber numberWithDouble:quinteflush],
+                                                                   nil] autorelease]
+                                                         forKeys:[[[NSArray alloc] initWithObjects:
+                                                                   @"UNE_PAIRE",
+                                                                   @"DEUX_PAIRES",
+                                                                   //@"BRELAN",
+                                                                   @"CARRE",
+                                                                   @"COULEUR",
+                                                                   @"FULL",
+                                                                   @"SUITE",
+                                                                   @"QUINTEFLUSH",
+                                                                   nil] autorelease]];
+    
+    // trie dans l'ordre croissant
+    NSArray *sorted = [motifs keysSortedByValueUsingSelector:@selector(compare:)];
+    
+    // DEBUG
+    for (int i = 0; i < [sorted count]; i++) {
+        NSLog(@"sorted[%d]: %@ (%@)", i, [sorted objectAtIndex:i], [motifs objectForKey:[sorted objectAtIndex:i]]);
+    }
+    
+    // je fais la liste des motifs remarquables (>= 3%) UNE_PAIRE exclus
+    NSMutableDictionary *motifsRemarquables = [[NSMutableDictionary alloc] init];
+    NSNumber *seuil = [NSNumber numberWithDouble:0.30];
+    for (int i = 0; i < [sorted count]; i++) {
+        
+        if ([[motifs objectForKey:[sorted objectAtIndex:i]] doubleValue] >= [seuil doubleValue] &&
+            [(NSString *)[sorted objectAtIndex:i] compare:@"UNE_PAIRE"] != 0 ) {
+            [motifsRemarquables setValue:[motifs objectForKey:[sorted objectAtIndex:i]]
+                                  forKey:[sorted objectAtIndex:i]];
+        }
+    }
+    
+    // DEBUG
+    NSLog(@"Motifs remarquables:");
+    for (NSString *k in [motifsRemarquables allKeys]) {
+        NSLog(@"%@", k);
+    }
+    
+    // si la liste est vide je prend par ordre de priorité parmis ces motifs 
+    // sinon je prend le motif qui a la proba la plus importante dans le NSArray sorted
+    int motifSelected = RIEN;
+    if ([motifsRemarquables count] > 0) {
+        
+        // QUINTEFLUSH
+        if ([motifsRemarquables objectForKey:@"QUINTEFLUSH"]) {
+            motifSelected = QUINTEFLUSH;
+        }
+        
+        // CARRE
+        if (!motifSelected && [motifsRemarquables objectForKey:@"CARRE"]) {
+            motifSelected = CARRE;
+        }
+        
+        // FULL
+        if (!motifSelected && [motifsRemarquables objectForKey:@"FULL"]) {
+            motifSelected = FULL;
+        }
+        
+        // COULEUR
+        if (!motifSelected && [motifsRemarquables objectForKey:@"COULEUR"]) {
+            motifSelected = COULEUR;
+        }
+        
+        // SUITE
+        if (!motifSelected && [motifsRemarquables objectForKey:@"SUITE"]) {
+            motifSelected = SUITE;
+        }
+        
+        // BRELAN
+        if (!motifSelected && [motifsRemarquables objectForKey:@"BRELAN"]) {
+            motifSelected = BRELAN;
+        }
+        
+        // DEUX_PAIRES
+        if (!motifSelected && [motifsRemarquables objectForKey:@"DEUX_PAIRES"]) {
+            motifSelected = DEUX_PAIRE;
+        }
+        
+        // UNE_PAIRE peut pas etre ici vu qu'on ne traite pas ce motif
+        
+    }
+    else {
+        NSLog(@"aucun motif remarquable detecté");
+        
+        NSString *tmp = [sorted objectAtIndex:([sorted count] - 1)];
+        
+        if ([tmp compare:@"UNE_PAIRE"] == 0) {
+            motifSelected = UNE_PAIRE;
+        }
+        if (!motifSelected && [tmp compare:@"DEUX_PAIRES"] == 0) {
+            motifSelected = DEUX_PAIRE;
+        }
+        if (!motifSelected && [tmp compare:@"BRELAN"] == 0) {
+            motifSelected = BRELAN;
+        }
+        if (!motifSelected && [tmp compare:@"CARRE"] == 0) {
+            motifSelected = CARRE;
+        }
+        if (!motifSelected && [tmp compare:@"COULEUR"] == 0) {
+            motifSelected = COULEUR;
+        }
+        if (!motifSelected && [tmp compare:@"FULL"] == 0) {
+            motifSelected = FULL;
+        }
+        if (!motifSelected && [tmp compare:@"SUITE"] == 0) {
+            motifSelected = SUITE;
+        }
+        if (!motifSelected && [tmp compare:@"QUINTEFLUSH"] == 0) {
+            motifSelected = QUINTEFLUSH;
+        }
+    }
+    
+    double nbOuts = 0;
+    
+    // connaissant le motif gagnant on retourne le nombre d'OUT correspondant
+    switch (motifSelected) {
+        case UNE_PAIRE:
+            NSLog(@"le mieux c'est une paire");
+            nbOuts = 6;
+            break;
+        case DEUX_PAIRE:
+            NSLog(@"le mieux c'est deux paire");
+            nbOuts = 5;
+            break;
+        case BRELAN:
+            NSLog(@"le mieux c'est un brelan");
+            nbOuts = 2;
+            break;
+        case CARRE:
+            NSLog(@"le mieux c'est un carré");
+            nbOuts = 7;
+            break;
+        case COULEUR:
+            NSLog(@"le mieux c'est une couleur");
+            nbOuts = 2;
+            break;
+        case FULL:
+            NSLog(@"le mieux c'est un full");
+            nbOuts = 7;
+            break;
+        case SUITE:
+            NSLog(@"le mieux c'est une suite");
+            nbOuts = 9;
+            break;
+        case QUINTEFLUSH:
+            NSLog(@"le mieux c'est une quinteflush");
+            nbOuts = 1;
+            break;
+        default:
+            NSLog(@"erreur à la selection d'outs !");
+            break;
+    }
+    
+    coteAmelioration = nbOuts;
 }
 
 /*
@@ -410,54 +580,6 @@
     }
     return [[[NSString alloc] initWithString:[res autorelease]] autorelease];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- (void)detecterMainOld
-{
-    
-    /* je considere qu'on a rien, de base */
-    coupsDispo[RIEN] = 1;
-
-
-    /* detection couleur */
-    coupsDispo[COULEUR] = 1;
-    int ref = self.premiereCarteJoueur.couleur;
-    if (self.deuxiemeCarteJoueur.couleur != ref) {
-        coupsDispo[COULEUR] = 0;
-    }
-    if (coupsDispo[COULEUR] && [[self carteDuTapis:1] couleur] != ref) {
-        coupsDispo[COULEUR] = 0;
-    }
-    if (coupsDispo[COULEUR] && [[self carteDuTapis:2] couleur] != ref) {
-        coupsDispo[COULEUR] = 0;
-    }
-    if (coupsDispo[COULEUR] && [[self carteDuTapis:3] couleur] != ref) {
-        coupsDispo[COULEUR] = 0;
-    }
-    // si j'ai une couleur ben j'ai quelque chose
-    if (coupsDispo[COULEUR]) {
-        coupsDispo[RIEN] = 0;
-    }
-}
-
-
 
 @end
 
