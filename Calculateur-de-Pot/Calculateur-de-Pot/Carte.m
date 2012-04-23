@@ -51,8 +51,10 @@
         case CARREAU:
             couleurString = @"Carreau";
             break;
-        default:
+        case TREFLE:
             couleurString = @"Trèfle";
+        default:
+            couleurString = @"Dummy";
             break;
     }
     return [NSString stringWithFormat:@"[%d de %@]", valeur, couleurString];

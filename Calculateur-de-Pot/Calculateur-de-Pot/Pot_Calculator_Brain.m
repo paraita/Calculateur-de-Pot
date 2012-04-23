@@ -48,7 +48,7 @@
         // cartes de la partie (les 2 joueurs et le tapis)
         self.cartesEnJeu = [[NSMutableArray alloc] initWithCapacity:9];
         for (int i = 0; i < 9; i++) {
-            Carte *dummy = [[Carte alloc] initWithColor:COEUR valeur:0 img:nil];;
+            Carte *dummy = [[Carte alloc] initWithColor:DUMMY valeur:0 img:nil];;
             [cartesEnJeu addObject:dummy];
             [dummy release];
         }
@@ -307,8 +307,67 @@
 
 - (void)detecterMain
 {
+    double nbOuts = 0;
+    
+    NSLog(@"premiere carte joueur: %@", [self.premiereCarteJoueur description]);
+    NSLog(@"deuxieme carte joueur: %@", [self.deuxiemeCarteJoueur description]);
+    NSLog(@"flop 1: %@", [[self carteDuTapis:1] description]);
+    NSLog(@"flop 2: %@", [[self carteDuTapis:2] description]);
+    NSLog(@"flop 3: %@", [[self carteDuTapis:3] description]);
+    NSLog(@"turn: %@", [[self carteDuTapis:4] description]);
+    NSLog(@"river: %@", [[self carteDuTapis:5] description]);
+    
+    
+    
+    // on detecte le tapis pour savoir ou on en est
+    int cnt = 0;
+    if (self.premiereCarteJoueur.couleur != DUMMY) {
+        cnt++;
+    }
+    if (self.deuxiemeCarteJoueur.couleur != DUMMY) {
+        cnt++;
+    }
+    if ([self carteDuTapis:1].couleur != DUMMY) {
+        cnt++;
+    }
+    if ([self carteDuTapis:2].couleur != DUMMY) {
+        cnt++;
+    }
+    if ([self carteDuTapis:3].couleur != DUMMY) {
+        cnt++;
+    }
+    if ([self carteDuTapis:4].couleur != DUMMY) {
+        cnt++;
+    }
+    if ([self carteDuTapis:5].couleur != DUMMY) {
+        cnt++;
+    }
+    NSLog(@"cnt=%d", cnt);
+    if (cnt == 2) {
+        self.etat = PREFLOP;
+    }
+    else {
+        if (cnt == 5) {
+            self.etat = FLOP;
+        }
+        else {
+            if (cnt == 6) {
+                self.etat = TURN;
+            }
+            else {
+                if (cnt == 7) {
+                    self.etat = RIVER;
+                }
+                else {
+                    NSLog(@"erreur: vérifier le tapis");
+                    coteAmelioration = nbOuts;
+                }
+            }
+        }
+    }
     
     if (etat == PREFLOP) {
+        NSLog(@"on est au PREFLOP");
         internalBrain.cards = nil;
         internalBrain.cards = [[NSArray alloc] initWithObjects:[self codify:[self premiereCarteJoueur]],
                                [self codify:[self deuxiemeCarteJoueur]],
@@ -316,6 +375,7 @@
     }
     else {
         if (etat == FLOP) {
+            NSLog(@"on est au FLOP");
             internalBrain.cards = nil;
             internalBrain.cards = [[NSArray alloc] initWithObjects:[self codify:[self premiereCarteJoueur]],
                                    [self codify:[self deuxiemeCarteJoueur]],
@@ -326,6 +386,7 @@
         }
         else {
             if (etat == TURN) {
+                NSLog(@"on est au TURN");
                 internalBrain.cards = nil;
                 internalBrain.cards = [[NSArray alloc] initWithObjects:[self codify:[self premiereCarteJoueur]],
                                        [self codify:[self deuxiemeCarteJoueur]],
@@ -337,6 +398,7 @@
             }
             // sinon on est a la RIVER
             else {
+                NSLog(@"on est a la RIVER");
                 internalBrain.cards = nil;
                 internalBrain.cards = [[NSArray alloc] initWithObjects:[self codify:[self premiereCarteJoueur]],
                                        [self codify:[self deuxiemeCarteJoueur]],
@@ -363,14 +425,14 @@
     double quinteflush = [internalBrain chanceOfStraightFlush];
     
     NSDictionary *motifs = [[NSDictionary alloc] initWithObjects:[[[NSArray alloc] initWithObjects:
-                                                                  [NSNumber numberWithDouble:unePaire], 
-                                                                  [NSNumber numberWithDouble:deuxPaires],
-                                                                  //[NSNumber numberWithDouble:brelan],
-                                                                  [NSNumber numberWithDouble:carre],
-                                                                  [NSNumber numberWithDouble:couleur],
-                                                                  [NSNumber numberWithDouble:full],
-                                                                  [NSNumber numberWithDouble:suite],
-                                                                  [NSNumber numberWithDouble:quinteflush],
+                                                                   [NSNumber numberWithDouble:unePaire], 
+                                                                   [NSNumber numberWithDouble:deuxPaires],
+                                                                   //[NSNumber numberWithDouble:brelan],
+                                                                   [NSNumber numberWithDouble:carre],
+                                                                   [NSNumber numberWithDouble:couleur],
+                                                                   [NSNumber numberWithDouble:full],
+                                                                   [NSNumber numberWithDouble:suite],
+                                                                   [NSNumber numberWithDouble:quinteflush],
                                                                    nil] autorelease]
                                                          forKeys:[[[NSArray alloc] initWithObjects:
                                                                    @"UNE_PAIRE",
@@ -483,7 +545,7 @@
         }
     }
     
-    double nbOuts = 0;
+    nbOuts = 0;
     
     // connaissant le motif gagnant on retourne le nombre d'OUT correspondant
     switch (motifSelected) {
@@ -528,8 +590,8 @@
 }
 
 /*
-    prend une carte et retourne sa représentation pour la lib de calcul externe
-*/
+ prend une carte et retourne sa représentation pour la lib de calcul externe
+ */
 - (NSString *)codify:(Carte *)c
 {
     NSMutableString *res = [[NSMutableString alloc] init];
@@ -579,6 +641,48 @@
             break;
     }
     return [[[NSString alloc] initWithString:[res autorelease]] autorelease];
+}
+
+-(Carte *)getFromPaquet:(NSString *)uneHauteur couleur:(NSString *)uneCouleur{
+    int valHauteur = 0;
+    int valCouleur = 0;
+    int index = 0;
+    
+    if([uneHauteur isEqualToString:@"as"]){
+        valHauteur = 1;
+    }else{
+        if([uneHauteur isEqualToString:@"valet"]){
+            valHauteur = 11;
+        }else{
+            if([uneHauteur isEqualToString:@"dame"]){
+                valHauteur = 12;
+            }else{
+                if([uneHauteur isEqualToString:@"roi"]){
+                    valHauteur = 13;
+                }
+                else{
+                    valHauteur = [uneHauteur intValue];
+                }}}}
+    
+    if([uneCouleur isEqualToString:@"Coeur"]){
+        valCouleur = 0;
+    }
+    else{
+        if([uneCouleur isEqualToString:@"Carreau"]){
+            valCouleur = 26;
+        }
+        else{
+            if([uneCouleur isEqualToString:@"Pique"]){
+                valCouleur = 13;
+            }
+            else{
+                if([uneCouleur isEqualToString:@"Trefle"]){
+                    valCouleur = 39;
+                }}}}
+    index = valCouleur + valHauteur;
+    Carte *c = [self.paquetCartes objectAtIndex:index];
+    NSLog(@"%@ et index = %d",c.description, index);
+    return c;
 }
 
 @end

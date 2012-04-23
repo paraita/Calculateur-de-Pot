@@ -27,7 +27,7 @@
         self.brain = aBrain;
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(refreshCoteLbl:)
-                                                      name:@"refreshCote" object:nil];
+                                                     name:@"refreshCote" object:nil];
     }
     return self;
 }
@@ -44,19 +44,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    //self.view.layer.cornerRadius = 10.0f;
-    //self.view.layer.masksToBounds = YES;
-    /*
-    tab_Hauteur=[[NSMutableArray alloc]initWithObjects:@"As",@"2",@"3",@"4",@"5",
-                @"6",@"7",@"8",@"9",@"10",@"Valet",@"Dame",@"Roi",nil];
-    tab_Couleur=[[NSMutableArray alloc]initWithObjects:@"Coeur",@"Carreau",@"Trefle",@"Pique",nil]; 
-    */
     tab_Hauteur=[[NSMutableArray alloc]initWithObjects:@"as",@"2",@"3",@"4",@"5",
                  @"6",@"7",@"8",@"9",@"10",@"valet",@"dame",@"roi",nil];
     tab_Couleur=[[NSMutableArray alloc]initWithObjects:@"Coeur",@"Carreau",@"Trefle",@"Pique",nil]; 
     [self setCurrentImageString:[NSMutableString stringWithString:@""]];
-
+    
 }
 
 - (void)viewDidUnload
@@ -64,25 +56,6 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
-
-/*
-- (IBAction)buttonPressed1:(id)sender{
-    
-    NSLog(@"%@", [sender currentTitle]);
-    myPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 200)];
-    [self.view addSubview:myPickerView];
-    myPickerView.delegate = self;
-    myPickerView.showsSelectionIndicator = YES;
-    
-    doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [doneButton addTarget:self
-                   action:@selector(aMethod:)
-         forControlEvents:UIControlEventTouchDown];
-    doneButton.frame = CGRectMake(265.0,202.0,  52.0, 30.0);
-    
-    [self.view addSubview:doneButton];
-}
-*/
 
 - (IBAction)buttonPressed1:(id)sender{
     
@@ -117,102 +90,49 @@
     currentButton = sender;
     [self.view addSubview:doneButton];
     [self.view addSubview:cancelButton];
-    
-    
-    
 }
 
--(int)convertHauteurToInt:(NSString*)hauteur{
-    if([hauteur isEqualToString:@"as"]){
-        return 1;   
-    }
-    if([hauteur isEqualToString:@"2"]){
-        return 2;
-    }if([hauteur isEqualToString:@"3"]){
-        return 3;
-    }if([hauteur isEqualToString:@"4"]){
-        return 4;
-    }if([hauteur isEqualToString:@"5"]){
-        return 5;
-    }if([hauteur isEqualToString:@"6"]){
-        return 6;
-    }if([hauteur isEqualToString:@"7"]){
-        return 7;
-    }if([hauteur isEqualToString:@"8"]){
-        return 8;
-    }if([hauteur isEqualToString:@"9"]){
-        return 9;
-    }if([hauteur isEqualToString:@"10"]){
-        return 10;
-    }if([hauteur isEqualToString:@"valet"]){
-        return 11;
-    }if([hauteur isEqualToString:@"dame"]){
-        return 12;
-    }if([hauteur isEqualToString:@"roi"]){
-        return 13;
-    }
-    else{
-        return 0;
-        NSLog(@"a retourne 0");
-    }
-    
-}
 
--(void)setUneCarte:(NSString*)couleur hauteur:(NSString*)uneHauteur{
-    if ([couleur isEqualToString:@"Coeur"]) {
-        Carte *c = [[Carte alloc] initWithColor:COEUR valeur:[self convertHauteurToInt:uneHauteur] img:nil];
-        NSLog(@"passage reussi");
-        [self setCarteWithButtonSelected:currentButton carte:c];
-        NSLog(@"Creation carte reussi et set reussi");
-        
-    }
-    else{
-        if ([couleur isEqualToString:@"Carreau"]) {
-            Carte *c = [[Carte alloc] initWithColor:CARREAU valeur:[self convertHauteurToInt:uneHauteur] img:nil];
-            [self setCarteWithButtonSelected:currentButton carte:c];
-        }
-        else{
-            if ([couleur isEqualToString:@"Pique"]) {
-                Carte *c = [[Carte alloc] initWithColor:PIQUE valeur:[self convertHauteurToInt:uneHauteur] img:nil];
-                [self setCarteWithButtonSelected:currentButton carte:c];
-                //return c;
-            } else {
-                Carte *c = [[Carte alloc] initWithColor:TREFLE valeur:[self convertHauteurToInt:uneHauteur] img:nil];
-                [self setCarteWithButtonSelected:currentButton carte:c];
-                //return c;
-            }
-        }
-    }
-}
 
 -(void)setCarteWithButtonSelected:(UIButton*)myButton carte:(Carte*)maCarte{
+    NSLog(@"la carte que je veux setter: %@", [maCarte description]);
     if([[myButton currentTitle] isEqualToString:@"Macarte1"]){
         [brain setPremiereCarteJoueur:maCarte];
-    }
-    if([[myButton currentTitle] isEqualToString:@"Macarte2"]){
-        [brain setDeuxiemeCarteJoueur:maCarte];
-    }
-    if([[myButton currentTitle] isEqualToString:@"Advcarte1"]){
-        [brain setPremiereCarteAdversaire:maCarte];
-    }
-    if([[myButton currentTitle] isEqualToString:@"Advcarte2"]){
-        [brain setDeuxiemeCarteAdversaire:maCarte];
-    }
-    if([[myButton currentTitle] isEqualToString:@"flop1"]){
-        [brain setCarteDuTapis:maCarte numero:1];
-    }
-    if([[myButton currentTitle] isEqualToString:@"flop2"]){
-        [brain setCarteDuTapis:maCarte numero:2];
-    }
-    if([[myButton currentTitle] isEqualToString:@"flop3"]){
-        [brain setCarteDuTapis:maCarte numero:3];
-    }
-    if([[myButton currentTitle] isEqualToString:@"turn"]){
-        [brain setCarteDuTapis:maCarte numero:4];
-    }
-    if([[myButton currentTitle] isEqualToString:@"river"]){
-        [brain setCarteDuTapis:maCarte numero:5];
-    }
+        NSLog(@"la carte dans le brain: %@", [brain.premiereCarteJoueur description]);
+    }else{
+        if([[myButton currentTitle] isEqualToString:@"Macarte2"]){
+            [brain setDeuxiemeCarteJoueur:maCarte];
+            NSLog(@"la carte dans le brain: %@", [brain.deuxiemeCarteJoueur description]);
+        }else{
+            if([[myButton currentTitle] isEqualToString:@"Advcarte1"]){
+                [brain setPremiereCarteAdversaire:maCarte];
+                NSLog(@"la carte dans le brain: %@", [brain.premiereCarteAdversaire description]);
+            }else{
+                if([[myButton currentTitle] isEqualToString:@"Advcarte2"]){
+                    [brain setDeuxiemeCarteAdversaire:maCarte];
+                    NSLog(@"la carte dans le brain: %@", [brain.deuxiemeCarteAdversaire description]);
+                }else{
+                    if([[myButton currentTitle] isEqualToString:@"flop1"]){
+                        [brain setCarteDuTapis:maCarte numero:1];
+                        NSLog(@"la carte dans le brain: %@", [[brain carteDuTapis:1] description]);
+                    }else{
+                        if([[myButton currentTitle] isEqualToString:@"flop2"]){
+                            [brain setCarteDuTapis:maCarte numero:2];
+                            NSLog(@"la carte dans le brain: %@", [[brain carteDuTapis:2] description]);
+                        }else{
+                            if([[myButton currentTitle] isEqualToString:@"flop3"]){
+                                [brain setCarteDuTapis:maCarte numero:3];
+                                NSLog(@"la carte dans le brain: %@", [[brain carteDuTapis:3] description]);
+                            }else{
+                                if([[myButton currentTitle] isEqualToString:@"turn"]){
+                                    [brain setCarteDuTapis:maCarte numero:4];
+                                    NSLog(@"la carte dans le brain: %@", [[brain carteDuTapis:4] description]);
+                                }else{
+                                    if([[myButton currentTitle] isEqualToString:@"river"]){
+                                        [brain setCarteDuTapis:maCarte numero:5];
+                                        NSLog(@"la carte dans le brain: %@", [[brain carteDuTapis:5] description]);
+                                    }}}}}}}}}
+    
 }
 
 -(IBAction)doneMethod:(id)sender
@@ -220,12 +140,10 @@
     //Partie brain
     
     //On crée la carte grace a la selection du PickerView
-    //Carte *carte1 = [[Carte alloc] init];
-    //carte1 = 
-    [self setUneCarte:[tab_Couleur objectAtIndex:[myPickerView selectedRowInComponent:1]] hauteur:[tab_Hauteur objectAtIndex:[myPickerView selectedRowInComponent:0]]];
-    NSLog(@"Creation reussi");
+    Carte *c = [self.brain getFromPaquet:[tab_Hauteur objectAtIndex:[myPickerView selectedRowInComponent:0]] couleur:[tab_Couleur objectAtIndex:[myPickerView selectedRowInComponent:1]]];
     
-    
+    //On envoie la carte au brain
+    [self setCarteWithButtonSelected:currentButton carte:c];
     
     //Partie vue
     
@@ -237,6 +155,7 @@
     
     NSLog(@"%@,%@",[tab_Hauteur objectAtIndex:[myPickerView selectedRowInComponent:0]],[tab_Couleur objectAtIndex:[myPickerView selectedRowInComponent:1]]);
     NSLog(@"%@", currentImageString);
+    
     
     //Constructions de l'image carte
     currentImage = [UIImage imageNamed:currentImageString];

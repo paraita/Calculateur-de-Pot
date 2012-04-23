@@ -62,6 +62,7 @@
     UITableViewCell *cell = [[UITableViewCell alloc] init];
     switch (indexPath.row) {
         case 0:
+            cell.textLabel.textAlignment = UITextAlignmentCenter;
             cell.textLabel.text = @"Menu";
             break;
         case 1:
@@ -78,6 +79,7 @@
         default:
             break;
     }
+    cell.textLabel.textColor = [UIColor whiteColor];
     return [cell autorelease];
 }
 

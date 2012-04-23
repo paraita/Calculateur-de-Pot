@@ -39,7 +39,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"backgroundcartes.jpg"]];
     // pour pouvoir scroller verticalement
     UIScrollView *v = (id)self.view;
     v.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);

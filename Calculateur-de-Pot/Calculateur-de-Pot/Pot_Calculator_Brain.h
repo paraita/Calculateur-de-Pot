@@ -48,4 +48,5 @@ typedef enum { PREFLOP, FLOP, TURN, RIVER } etatPartie;
 - (void)detecterMain;
 - (NSString *)codify:(Carte *)c;
 
+-(Carte *)getFromPaquet:(NSString *)uneHauteur couleur:(NSString *)uneCouleur;
 @end

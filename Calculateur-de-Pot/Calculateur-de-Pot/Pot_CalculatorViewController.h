@@ -11,7 +11,7 @@
 
 
 @interface Pot_CalculatorViewController : UIViewController <UIPickerViewDelegate> {
-
+    
     UIPickerView *myPickerView;
     NSMutableArray *tab_Hauteur;
     NSMutableArray *tab_Couleur;
@@ -43,8 +43,6 @@
 - (IBAction)buttonPressed1:(id)sender;
 -(IBAction)doneMethod:(id)sender;
 -(IBAction)cancelMethod:(id)sender;
--(int)convertHauteurToInt:(NSString*)hauteur;
 -(void)setCarteWithButtonSelected:(UIButton*)myButton carte:(Carte*)maCarte;
--(void)setUneCarte:(NSString*)couleur hauteur:(NSString*)uneHauteur;
 - (void)resetTapis;
 @end
