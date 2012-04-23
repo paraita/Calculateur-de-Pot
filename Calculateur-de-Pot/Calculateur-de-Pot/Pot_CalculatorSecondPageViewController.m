@@ -7,6 +7,7 @@
 //
 
 #import "Pot_CalculatorSecondPageViewController.h"
+#import "Pot_CalculatorThirdPageViewController.h"
 #import "Pot_CalculatorViewController.h"
 #import "IIViewDeckController.h"
 
@@ -100,6 +101,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UIAlertView *infos = [[UIAlertView alloc] initWithTitle:@"A propos" message:@"projet iOS 2012 par M'rah Mehdi et Wohler Paraita" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     switch (indexPath.row) {
         case 1:
             [self.viewDeckController showCenterView];
@@ -109,14 +111,17 @@
             break;
         case 3:
             [(Pot_CalculatorViewController *)[self.viewDeckController centerController] resetTapis];
+            [(Pot_CalculatorThirdPageViewController *)[self.viewDeckController rightController] resetChamps];
             [self.viewDeckController showCenterView];
             break;
         case 4:
-            NSLog(@"//TODO: la vue modale qui donne des infos");
+            [infos show];
+            [infos release];
             break;
         default:
             break;
     }
+    infos = nil;
 }
 
 

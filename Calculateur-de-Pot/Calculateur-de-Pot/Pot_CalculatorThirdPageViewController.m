@@ -39,7 +39,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"backgroundcartes.jpg"]];
     // pour pouvoir scroller verticalement
     UIScrollView *v = (id)self.view;
     v.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
@@ -91,12 +90,19 @@
     [brain calculerCote:taillePot mise:mise];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshCote" object:brain];
     NSLog(@"on a calculé la nouvelle cote et prevenu les observeurs");
+    [self resetChamps];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (void)resetChamps
+{
+    self.champMise.text = @"";
+    self.champTaillePot.text = @"";
 }
 
 @end

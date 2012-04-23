@@ -45,14 +45,6 @@
             NSLog(@"oups ! erreur d'allocation des coups dispo !");
         }
         
-        // cartes de la partie (les 2 joueurs et le tapis)
-        self.cartesEnJeu = [[NSMutableArray alloc] initWithCapacity:9];
-        for (int i = 0; i < 9; i++) {
-            Carte *dummy = [[Carte alloc] initWithColor:DUMMY valeur:0 img:nil];;
-            [cartesEnJeu addObject:dummy];
-            [dummy release];
-        }
-        
         // cartes du paquet
         self.paquetCartes = [[NSArray alloc] initWithObjects:
                              [[[Carte alloc] initWithColor:DUMMY
@@ -215,6 +207,14 @@
                                                     valeur:13
                                                        img:[UIImage imageNamed:@"roiTrefle.png"]] autorelease],
                              nil];
+        
+        
+        // cartes de la partie (les 2 joueurs et le tapis)
+        self.cartesEnJeu = [[NSMutableArray alloc] initWithCapacity:9];
+        for (int i = 0; i < 9; i++) {
+            [cartesEnJeu addObject:[self.paquetCartes objectAtIndex:0]];
+        }
+        
         NSLog(@"initialisation du brain OK");
         //[self detecterMain];
     }
@@ -361,6 +361,7 @@
                 else {
                     NSLog(@"erreur: vérifier le tapis");
                     coteAmelioration = nbOuts;
+                    return;
                 }
             }
         }
@@ -413,7 +414,6 @@
     }
     
     
-    //internalBrain.cards = [[NSArray alloc] initWithObjects:@"3h", @"4h", @"5s", @"6h", @"8h", nil];
     
     double unePaire = [internalBrain chanceOfPair];
     double deuxPaires = [internalBrain chanceOfTwoPair];
@@ -683,6 +683,16 @@
     Carte *c = [self.paquetCartes objectAtIndex:index];
     NSLog(@"%@ et index = %d",c.description, index);
     return c;
+}
+
+- (void)resetBrain
+{
+    coteAmelioration = 0.0;
+    self.cartesEnJeu = nil;
+    self.cartesEnJeu = [[NSMutableArray alloc] initWithCapacity:9];
+    for (int i = 0; i < 9; i++) {
+        [cartesEnJeu addObject:[self.paquetCartes objectAtIndex:0]];
+    }
 }
 
 @end

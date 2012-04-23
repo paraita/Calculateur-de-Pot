@@ -243,6 +243,8 @@
 
 - (void)resetTapis
 {
+    self.lblCotePot.text = @"";
+    self.lblCoteAmelioration.text = @"";
     [self.maCarteUn setImage:[UIImage imageNamed:@"dos.png"] forState:UIControlStateNormal];
     [self.maCarteDeux setImage:[UIImage imageNamed:@"dos.png"] forState:UIControlStateNormal];
     [self.adversaireCarteUn setImage:[UIImage imageNamed:@"dos.png"] forState:UIControlStateNormal];
@@ -252,6 +254,7 @@
     [self.flopTrois setImage:[UIImage imageNamed:@"dos.png"] forState:UIControlStateNormal];
     [self.turn setImage:[UIImage imageNamed:@"dos.png"] forState:UIControlStateNormal];
     [self.river setImage:[UIImage imageNamed:@"dos.png"] forState:UIControlStateNormal];
+    [self.brain resetBrain];
 }
 
 // informe que la cote a été mise à jour, il faut raffraichir la valeur du label

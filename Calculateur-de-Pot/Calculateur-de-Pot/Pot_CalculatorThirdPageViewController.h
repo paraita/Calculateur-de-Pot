@@ -18,4 +18,5 @@
 
 - (id)initWithBrain:(Pot_Calculator_Brain *)aBrain;
 - (IBAction)calculerCote:(id)sender;
+- (void)resetChamps;
 @end

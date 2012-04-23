@@ -37,9 +37,7 @@
 @property (nonatomic, assign) IBOutlet UIButton *river;
 @property (retain) NSMutableString *currentImageString;
 
-- (IBAction)changeBackgrundcard:(id)sender;
 - (id)initWithBrain:(Pot_Calculator_Brain *)aBrain;
-- (void) buttonPressed:(UIButton *) pressed;
 - (IBAction)buttonPressed1:(id)sender;
 -(IBAction)doneMethod:(id)sender;
 -(IBAction)cancelMethod:(id)sender;

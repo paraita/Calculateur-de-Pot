@@ -121,6 +121,8 @@
 		64346DB2152B52C700E54225 /* Pot_CalculatorSecondPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64346DB0152B52C700E54225 /* Pot_CalculatorSecondPageViewController.xib */; };
 		64346DBB152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64346DB9152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.m */; };
 		64346DBC152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64346DBA152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.xib */; };
+		6446C71F1545FB8600923B69 /* icone.png in Resources */ = {isa = PBXBuildFile; fileRef = 6446C71D1545FB8600923B69 /* icone.png */; };
+		6446C7201545FB8600923B69 /* icone_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 6446C71E1545FB8600923B69 /* icone_retina.png */; };
 		6485141A153A0FE8000DF1C9 /* Carte.m in Sources */ = {isa = PBXBuildFile; fileRef = 64851419153A0FE8000DF1C9 /* Carte.m */; };
 		649F2553152C51A70050E4D5 /* Pot_Calculator_Brain.m in Sources */ = {isa = PBXBuildFile; fileRef = 649F2552152C51A70050E4D5 /* Pot_Calculator_Brain.m */; };
 		64ACFBD8152C36A400098A01 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64ACFBD5152C36A400098A01 /* IIViewDeckController.m */; };
@@ -254,6 +256,8 @@
 		64346DB8152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pot_CalculatorThirdPageViewController.h; sourceTree = "<group>"; };
 		64346DB9152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pot_CalculatorThirdPageViewController.m; sourceTree = "<group>"; };
 		64346DBA152C1E4300E54225 /* Pot_CalculatorThirdPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Pot_CalculatorThirdPageViewController.xib; sourceTree = "<group>"; };
+		6446C71D1545FB8600923B69 /* icone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icone.png; path = ../icone.png; sourceTree = "<group>"; };
+		6446C71E1545FB8600923B69 /* icone_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icone_retina.png; path = ../icone_retina.png; sourceTree = "<group>"; };
 		64851418153A0FE8000DF1C9 /* Carte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Carte.h; sourceTree = "<group>"; };
 		64851419153A0FE8000DF1C9 /* Carte.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Carte.m; sourceTree = "<group>"; };
 		649F2551152C51A70050E4D5 /* Pot_Calculator_Brain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pot_Calculator_Brain.h; sourceTree = "<group>"; };
@@ -296,6 +300,8 @@
 		45A2DE1B152C44F400BF80F3 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				6446C71D1545FB8600923B69 /* icone.png */,
+				6446C71E1545FB8600923B69 /* icone_retina.png */,
 				6415D32D153C9F3400974FBB /* 2Carreau.png */,
 				6415D32E153C9F3400974FBB /* 2Carreau@2x.png */,
 				6415D32F153C9F3400974FBB /* 2Coeur.png */,
@@ -652,6 +658,8 @@
 				6415D404153C9F4700974FBB /* valetPique@2x.png in Resources */,
 				6415D405153C9F4700974FBB /* valetTrefle.png in Resources */,
 				6415D406153C9F4700974FBB /* valetTrefle@2x.png in Resources */,
+				6446C71F1545FB8600923B69 /* icone.png in Resources */,
+				6446C7201545FB8600923B69 /* icone_retina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

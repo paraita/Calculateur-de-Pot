@@ -44,6 +44,7 @@ typedef enum { PREFLOP, FLOP, TURN, RIVER } etatPartie;
 - (Carte *)deuxiemeCarteAdversaire;
 - (Carte *)carteDuTapis:(int)numero;
 
+- (void)resetBrain;
 - (void)calculerCote:(float)laTailleDuPot mise:(float)laMise;
 - (void)detecterMain;
 - (NSString *)codify:(Carte *)c;
