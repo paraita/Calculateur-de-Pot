@@ -8,6 +8,14 @@
 
 #import "Pot_Calculator_Brain.h"
 #import "PokerOddsCalculator.h"
+#define SEUIL 0.25
+#define OUT_CARRE 1
+#define OUT_QUINTEFLUSH 2
+#define OUT_BRELAN 2
+#define OUT_UNE_PAIRE 6
+#define OUT_DEUX_PAIRE 5
+#define OUT_SUITE 8
+#define OUT_COULEUR 9
 
 
 @interface Pot_Calculator_Brain ()
@@ -455,10 +463,9 @@
     
     // je fais la liste des motifs remarquables (>= 3%) UNE_PAIRE exclus
     NSMutableDictionary *motifsRemarquables = [[NSMutableDictionary alloc] init];
-    NSNumber *seuil = [NSNumber numberWithDouble:0.30];
     for (int i = 0; i < [sorted count]; i++) {
         
-        if ([[motifs objectForKey:[sorted objectAtIndex:i]] doubleValue] >= [seuil doubleValue] &&
+        if ([[motifs objectForKey:[sorted objectAtIndex:i]] doubleValue] >= SEUIL &&
             [(NSString *)[sorted objectAtIndex:i] compare:@"UNE_PAIRE"] != 0 ) {
             [motifsRemarquables setValue:[motifs objectForKey:[sorted objectAtIndex:i]]
                                   forKey:[sorted objectAtIndex:i]];
@@ -476,44 +483,57 @@
     int motifSelected = RIEN;
     if ([motifsRemarquables count] > 0) {
         
+        /*
+            on somme les OUT de tout les motifs remarquables, ca colle plus à la réalité
+         */
+        
         // QUINTEFLUSH
         if ([motifsRemarquables objectForKey:@"QUINTEFLUSH"]) {
-            motifSelected = QUINTEFLUSH;
+            NSLog(@"possibilité de quinte flush");
+            nbOuts += OUT_QUINTEFLUSH;
         }
         
         // CARRE
         if (!motifSelected && [motifsRemarquables objectForKey:@"CARRE"]) {
-            motifSelected = CARRE;
+            NSLog(@"possibilité de carré");
+            nbOuts += OUT_CARRE;
         }
         
         // FULL
         if (!motifSelected && [motifsRemarquables objectForKey:@"FULL"]) {
-            motifSelected = FULL;
+            NSLog(@"possibilité de full");
+            nbOuts += OUT_SUITE;
         }
         
         // COULEUR
         if (!motifSelected && [motifsRemarquables objectForKey:@"COULEUR"]) {
-            motifSelected = COULEUR;
+            NSLog(@"possibilité de couleur");
+            nbOuts += OUT_COULEUR;
         }
         
         // SUITE
         if (!motifSelected && [motifsRemarquables objectForKey:@"SUITE"]) {
-            motifSelected = SUITE;
+            NSLog(@"possibilité de suite");
+            nbOuts += OUT_SUITE;
         }
         
         // BRELAN
         if (!motifSelected && [motifsRemarquables objectForKey:@"BRELAN"]) {
-            motifSelected = BRELAN;
+            NSLog(@"possibilité de brelan");
+            nbOuts += OUT_BRELAN;
         }
         
         // DEUX_PAIRES
         if (!motifSelected && [motifsRemarquables objectForKey:@"DEUX_PAIRES"]) {
-            motifSelected = DEUX_PAIRE;
+            NSLog(@"possibilité de deux paires");
+            nbOuts += OUT_DEUX_PAIRE;
         }
         
         // UNE_PAIRE peut pas etre ici vu qu'on ne traite pas ce motif
         
     }
+    // si y'a aucun motif remarquable on prend celui qui possède la proba la plus
+    // importante de tomber
     else {
         NSLog(@"aucun motif remarquable detecté");
         
@@ -543,48 +563,50 @@
         if (!motifSelected && [tmp compare:@"QUINTEFLUSH"] == 0) {
             motifSelected = QUINTEFLUSH;
         }
+        
+        nbOuts = 0;
+        // connaissant le motif gagnant on retourne le nombre d'OUT correspondant
+        switch (motifSelected) {
+            case UNE_PAIRE:
+                NSLog(@"le mieux c'est une paire");
+                nbOuts = 6;
+                break;
+            case DEUX_PAIRE:
+                NSLog(@"le mieux c'est deux paire");
+                nbOuts = 5;
+                break;
+            case BRELAN:
+                NSLog(@"le mieux c'est un brelan");
+                nbOuts = 2;
+                break;
+            case CARRE:
+                NSLog(@"le mieux c'est un carré");
+                nbOuts = 7;
+                break;
+            case COULEUR:
+                NSLog(@"le mieux c'est une couleur");
+                nbOuts = 2;
+                break;
+            case FULL:
+                NSLog(@"le mieux c'est un full");
+                nbOuts = 7;
+                break;
+            case SUITE:
+                NSLog(@"le mieux c'est une suite");
+                nbOuts = 9;
+                break;
+            case QUINTEFLUSH:
+                NSLog(@"le mieux c'est une quinteflush");
+                nbOuts = 1;
+                break;
+            default:
+                NSLog(@"erreur à la selection d'outs !");
+                break;
+        }
+        
     }
     
-    nbOuts = 0;
     
-    // connaissant le motif gagnant on retourne le nombre d'OUT correspondant
-    switch (motifSelected) {
-        case UNE_PAIRE:
-            NSLog(@"le mieux c'est une paire");
-            nbOuts = 6;
-            break;
-        case DEUX_PAIRE:
-            NSLog(@"le mieux c'est deux paire");
-            nbOuts = 5;
-            break;
-        case BRELAN:
-            NSLog(@"le mieux c'est un brelan");
-            nbOuts = 2;
-            break;
-        case CARRE:
-            NSLog(@"le mieux c'est un carré");
-            nbOuts = 7;
-            break;
-        case COULEUR:
-            NSLog(@"le mieux c'est une couleur");
-            nbOuts = 2;
-            break;
-        case FULL:
-            NSLog(@"le mieux c'est un full");
-            nbOuts = 7;
-            break;
-        case SUITE:
-            NSLog(@"le mieux c'est une suite");
-            nbOuts = 9;
-            break;
-        case QUINTEFLUSH:
-            NSLog(@"le mieux c'est une quinteflush");
-            nbOuts = 1;
-            break;
-        default:
-            NSLog(@"erreur à la selection d'outs !");
-            break;
-    }
     
     coteAmelioration = nbOuts;
 }
