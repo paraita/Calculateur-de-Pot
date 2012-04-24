@@ -309,7 +309,7 @@
 - (void)calculerCote:(float)laTailleDuPot mise:(float)laMise
 {
     NSLog(@"calcul de la cote dans le brain");
-    cotePot = laTailleDuPot / laMise;
+    cotePot = ( laTailleDuPot + laMise )/ laMise;
     [self detecterMain];
 }
 
@@ -484,7 +484,7 @@
     if ([motifsRemarquables count] > 0) {
         
         /*
-            on somme les OUT de tout les motifs remarquables, ca colle plus à la réalité
+         on somme les OUT de tout les motifs remarquables, ca colle plus à la réalité
          */
         
         // QUINTEFLUSH
@@ -607,8 +607,8 @@
     }
     
     
-    
-    coteAmelioration = nbOuts;
+    NSLog(@"nb Outs = %f ", nbOuts);
+    coteAmelioration = (46.5 - nbOuts) / nbOuts;
 }
 
 /*
